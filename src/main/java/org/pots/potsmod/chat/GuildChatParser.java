@@ -49,6 +49,18 @@ public final class GuildChatParser {
         }
         String displayed = matcher.group(1).trim();
         String content = matcher.group(2).trim();
+
+        // Handle slash formatted sender (e.g. RealName/Nickname)
+        if (displayed.contains("/")) {
+            String[] parts = displayed.split("/", 2);
+            if (parts.length == 2 && IGN.matcher(parts[0].trim()).matches()) {
+                String realIgn = parts[0].trim();
+                String nick = parts[1].trim();
+                org.pots.potsmod.utils.PlayerResolver.learnFromComponent(message);
+                return Optional.of(new CapturedMessage(realIgn, nick, content));
+            }
+        }
+
         String real = findRealUsername(segments, displayed);
         if (real == null) {
             real = org.pots.potsmod.utils.PlayerResolver.resolveRealName(message, displayed);

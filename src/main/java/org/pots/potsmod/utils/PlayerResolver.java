@@ -26,6 +26,9 @@ public final class PlayerResolver {
     private static final Pattern PAREN_NICK = Pattern.compile(
             "(?:\\[[^\\]]+\\]\\s*)?([a-zA-Z0-9_]{3,16})\\s*\\(([a-zA-Z0-9_]{3,16})\\)"
     );
+    private static final Pattern SLASH_NICK = Pattern.compile(
+            "([a-zA-Z0-9_]{3,16})/([a-zA-Z0-9_]{3,16})"
+    );
 
     // Nickname -> Real IGN cache
     private static final Map<String, String> NICK_TO_REAL = new ConcurrentHashMap<>();
@@ -80,6 +83,14 @@ public final class PlayerResolver {
             // In Wynncraft, paren typically shows: Nickname (RealName) or RealName (Nickname)
             NICK_TO_REAL.put(cleanKey(part1), part2);
             NICK_TO_REAL.put(cleanKey(part2), part2);
+        }
+
+        Matcher sm = SLASH_NICK.matcher(fullStr);
+        while (sm.find()) {
+            String realIgn = sm.group(1);
+            String nick = sm.group(2);
+            NICK_TO_REAL.put(cleanKey(nick), realIgn);
+            NICK_TO_REAL.put(cleanKey(realIgn), realIgn);
         }
     }
 
