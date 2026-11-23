@@ -96,6 +96,17 @@ public final class PlayerResolver {
 
     public static String resolveRealName(Component component, String rawName) {
         if (rawName == null || rawName.isBlank()) return "Unknown";
+
+        // Try direct ChatText resolution from component hover/insertion (EdenMod approach)
+        if (component != null) {
+            String resolved = org.pots.potsmod.chat.ChatText.resolveRealName(component, rawName);
+            if (resolved != null && !resolved.isBlank() && IGN_PATTERN.matcher(resolved).matches()) {
+                NICK_TO_REAL.put(cleanKey(rawName), resolved);
+                NICK_TO_REAL.put(cleanKey(resolved), resolved);
+                return resolved;
+            }
+        }
+
         String clean = cleanName(rawName);
 
         // Learn first from the specific event component

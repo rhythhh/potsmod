@@ -27,30 +27,12 @@ public final class ChatText {
         if (displayed == null) {
             return null;
         }
+        String stripped = stripNickDecoration(displayed);
         if (message == null) {
-            String cleaned2 = displayed.replaceAll("[^a-zA-Z0-9_]", "");
-            return IGN.matcher(cleaned2).matches() ? cleaned2 : null;
+            return IGN.matcher(stripped).matches() ? stripped : null;
         }
-        List<MetaChar> chars = flatten(message);
-        String text = text(chars);
-        int start = text.indexOf(displayed);
-        if (start >= 0) {
-            int end = Math.min(start + displayed.length(), chars.size());
-            for (int i = start; i < end; ++i) {
-                if (chars.get(i).hover() != null) {
-                    return chars.get(i).hover();
-                }
-            }
-            String trimmed = displayed.trim();
-            for (int i = start; i < end; ++i) {
-                String insertion = chars.get(i).insertion();
-                if (insertion != null && IGN.matcher(insertion).matches() && !insertion.equalsIgnoreCase(trimmed)) {
-                    return insertion;
-                }
-            }
-        }
-        String cleaned = displayed.replaceAll("[^a-zA-Z0-9_]", "");
-        return IGN.matcher(cleaned).matches() ? cleaned : null;
+        String resolved = resolveRealNameAnywhere(message, stripped);
+        return resolved != null ? resolved : stripped;
     }
 
     public static String resolveRealNameAnywhere(Component message, String displayed) {
