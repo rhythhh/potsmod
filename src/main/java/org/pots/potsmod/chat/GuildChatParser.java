@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public final class GuildChatParser {
     public static final int GUILD_CHAT_COLOR = 0x55FFFF;
     private static final Pattern CHAT_PATTERN = Pattern.compile(
-            "^(?:<\\d+>\\s*)?([a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]|[a-zA-Z0-9_]{1,16})\\s*:\\s*(.*)$",
+            "^(?:<\\d+>\\s*)?([a-zA-Z0-9_]{3,16}(?:/[a-zA-Z0-9_]{3,16})?|[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]|[a-zA-Z0-9_]{1,16})\\s*:\\s*(.*)$",
             Pattern.DOTALL
     );
     private static final Pattern HOVER_REAL_NAME_PATTERN = Pattern.compile(
@@ -43,7 +43,8 @@ public final class GuildChatParser {
         }
         List<Segment> segments = collect(message);
         String cleaned = ChatText.normalizeWhitespace(concat(segments));
-        Matcher matcher = CHAT_PATTERN.matcher(cleaned);
+        String normalized = org.pots.potsmod.features.GuildWebhookFeature.normalize(cleaned);
+        Matcher matcher = CHAT_PATTERN.matcher(normalized.isEmpty() ? cleaned : normalized);
         if (!matcher.find()) {
             return Optional.empty();
         }
