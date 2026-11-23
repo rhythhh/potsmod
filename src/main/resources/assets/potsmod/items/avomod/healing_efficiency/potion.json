@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "potsmod:item/avomod/healing_efficiency/potion"
+  }
+}

@@ -1,0 +1,20 @@
+package org.pots.potsmod.util;
+
+import lombok.experimental.UtilityClass;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+
+@UtilityClass
+public class McUtils {
+    public static void sendMessageToClient(String message) {
+        com.wynntils.utils.mc.McUtils.sendMessageToClient(Component.literal(message));
+    }
+
+    public static void logMessageToClient(String message) {
+        com.wynntils.utils.mc.McUtils.sendMessageToClient(
+                Component.literal("[r] ")
+                        .withStyle(ChatFormatting.LIGHT_PURPLE)
+                        .append(Component.literal(message))
+        );
+    }
+}

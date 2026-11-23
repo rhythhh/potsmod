@@ -1,0 +1,12 @@
+{
+  "key.category.rmod.config": "r Keybindings",
+  "category.rmod.hud": "r Map Overlay",
+  "key.category.rmod.hud": "r Map Overlay",
+  "key.rmod.world_map_hud": "Toggle Custom Map Overlay",
+  "key.rmod.world_map_hud_zoom_in": "Map Overlay Zoom In",
+  "key.rmod.world_map_hud_zoom_out": "Map Overlay Zoom Out",
+  "function.rmod.resTick.name": "Resource Tick",
+  "function.rmod.resTick.description": "Time until the next resource tick.",
+  "function.rmod.hqTimer.name": "HQ Timer",
+  "function.rmod.hqTimer.description": "Time the HQ has been held for."
+}

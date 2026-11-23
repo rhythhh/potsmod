@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "potsmod",
+  "version": "${version}",
+  "name": "potsmod",
+  "description": "Potato.",
+  "authors": [
+    "pots"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/potsmod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.pots.potsmod.PotsmodClient"
+    ],
+    "modmenu": [
+      "org.pots.potsmod.PotsmodModMenu"
+    ]
+  },
+  "mixins": [
+    "potsmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "wynntils": ">=${wynntils_version}",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/vPc3xkmqCf"
+      },
+      "update_checker": false
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "potsmod:item/avomod/elemental_damage/scroll"
+  }
+}

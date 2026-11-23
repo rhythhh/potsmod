@@ -1,0 +1,568 @@
+package org.pots.potsmod.util;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.wynntils.core.components.Models;
+import com.wynntils.core.text.StyledText;
+import com.wynntils.models.territories.TerritoryInfo;
+import com.wynntils.models.territories.type.GuildResource;
+import com.wynntils.models.territories.type.GuildResourceValues;
+import com.wynntils.models.territories.type.TerritoryUpgrade;
+import com.wynntils.services.map.pois.TerritoryPoi;
+import com.wynntils.utils.type.CappedValue;
+import com.wynntils.utils.type.Pair;
+import lombok.experimental.UtilityClass;
+import org.pots.potsmod.eventbus.REventBus;
+import org.pots.potsmod.eventbus.Subscribe;
+import org.pots.potsmod.managers.FeatureManager;
+import org.pots.potsmod.managers.TerritoryBaseManager;
+import org.pots.potsmod.mixin.wynntils.TerritoryInfoAccessor;
+import org.pots.potsmod.models.events.GuildMapUpdateEvent;
+import org.pots.potsmod.models.records.TerritoryCombatStats;
+import org.pots.potsmod.models.records.TerritoryInfoDepth;
+
+import java.util.*;
+
+@UtilityClass
+public class TerritoryUtils {
+    public static final GuildResource[] RESOURCES = GuildResource.values();
+    private static final HQDistanceCache HQ_DISTANCE_CACHE = new HQDistanceCache();
+    private static final QueueTimeCache QUEUE_TIME_CACHE = new QueueTimeCache();
+
+    public static int resStorageCapToLevel(int maxResourceStorage) {
+        return switch (maxResourceStorage) {
+            case 300 -> 0;
+            case 600 -> 1;
+            case 1200 -> 2;
+            case 2400 -> 3;
+            case 4500 -> 4;
+            case 10200 -> 5;
+            case 24000 -> 6;
+            default -> -1;
+        };
+    }
+
+    public static int resStorageLevelToCost(int resStorageLevel) {
+        return Math.toIntExact(TerritoryUpgrade.RESOURCE_STORAGE.getLevels()[resStorageLevel].cost());
+    }
+
+    public static int getResStorageLevel(TerritoryInfo territoryInfo) {
+        int hqModifier = territoryInfo.isHeadquarters() ? 5 : 1;
+        for (GuildResource resource : GuildResource.values()) {
+            if (!resource.isMaterialResource())
+                continue;
+
+            CappedValue storage = territoryInfo.getStorage(resource);
+            if (storage != null)
+                return TerritoryUtils.resStorageCapToLevel(storage.max() / hqModifier);
+        }
+        return 0;
+    }
+
+    public static int emeraldStorageLevelToCost(int emeraldStorageLevel) {
+        return Math.toIntExact(TerritoryUpgrade.EMERALD_STORAGE.getLevels()[emeraldStorageLevel].cost());
+    }
+
+    public static int getEmeraldStorageLevel(TerritoryInfo territoryInfo) {
+        int base = territoryInfo.isHeadquarters() ? 5000 : 3000;
+        CappedValue storage = territoryInfo.getStorage(GuildResource.EMERALDS);
+        if (storage == null)
+            return 0;
+
+        int bonus = (storage.max() * 100) / base - 100;
+        TerritoryUpgrade.Level[] levels = TerritoryUpgrade.EMERALD_STORAGE.getLevels();
+        for (int i = 0; i < levels.length; i++) {
+            if (levels[i].bonus() == bonus)
+                return i;
+        }
+        return -1;
+    }
+
+    public static int getMapTick() {
+        if (FeatureManager.getResTickFeature() == null) {
+            return -1;
+        }
+
+        return FeatureManager.getResTickFeature().getCurrentMapTick();
+    }
+
+    /**
+     * Get the distance of a territory from its HQ using BFS.
+     * Returns Integer.MAX_VALUE if the territory is cut off.
+     */
+    public static int getHQDistance(String territoryName) {
+        return HQ_DISTANCE_CACHE.get(territoryName);
+    }
+
+    /**
+     * Get the queue time of a territory using BFS.
+     */
+    public static int getQueueTime(String territoryName) {
+        return QUEUE_TIME_CACHE.get(territoryName);
+    }
+
+    public static Optional<String> getHQ(String guild) {
+        List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
+        for (TerritoryPoi terr : territories) {
+            TerritoryInfo info = terr.getTerritoryInfo();
+            if (!guild.equals(info.getGuildName()))
+                continue;
+            if (info.isHeadquarters())
+                return terr.getName().describeConstable();
+        }
+        return Optional.empty();
+    }
+
+    public static int getTerrCount(String guild) {
+        int cnt = 0;
+        List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
+        for (TerritoryPoi terr : territories) {
+            TerritoryInfo info = terr.getTerritoryInfo();
+            if (guild.equals(info.getGuildName()))
+                cnt++;
+        }
+        return cnt;
+    }
+
+    public static double getTreasuryBonus(String territoryName) {
+        TerritoryInfo territory = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
+        GuildResourceValues level = territory.getTreasury();
+
+        if (level.getLevel() <= 1)
+            return 0.0;
+
+        double tresValue = switch (level) {
+            case NONE, VERY_LOW -> 0.0;
+            case LOW -> 0.1;
+            case MEDIUM -> 0.2;
+            case HIGH -> 0.25;
+            case VERY_HIGH -> 0.3;
+        };
+
+        int distance = getHQDistance(territoryName);
+        double distanceModifier = switch (distance) {
+            case 0, 1, 2 -> 1.0;
+            case 3 -> 0.85;
+            case 4 -> 0.7;
+            case 5 -> 0.55;
+            default -> 0.4;
+        };
+
+        return tresValue * distanceModifier;
+    }
+
+    public static double getProductionModifier(String territoryName, GuildResource resource) {
+        int baseProd = TerritoryBaseManager.getTerritory(territoryName).getProduction(resource);
+        TerritoryInfo territoryInfo = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
+        int currProd = territoryInfo.getGeneration(resource);
+        if (baseProd == 0)
+            return 0;
+        return ((double) currProd) / baseProd;
+    }
+
+    public static TerritoryInfo territoryInfo(String territoryName) {
+        var poi = Models.Territory.getTerritoryPoiFromAdvancement(territoryName);
+        return poi == null ? null : poi.getTerritoryInfo();
+    }
+
+    public static TerritoryCombatStats estimateStats(Map<TerritoryUpgrade, Integer> upgrades, TerritoryInfo info) {
+        int directConnections = ownedConnections(info);
+        int externalConnections = info.isHeadquarters() ? ownedExternalConnections(info) : 0;
+        double multiplier = territoryMultiplier(directConnections, externalConnections, info.isHeadquarters());
+
+        double damageMultiplier = upgradeMultiplier(upgrades, TerritoryUpgrade.DAMAGE);
+        double minDamage = 1000.0 * damageMultiplier * multiplier;
+        double maxDamage = 1500.0 * damageMultiplier * multiplier;
+        double attackSpeed = 0.5 * upgradeMultiplier(upgrades, TerritoryUpgrade.ATTACK);
+        double health = 300000.0 * upgradeMultiplier(upgrades, TerritoryUpgrade.HEALTH) * multiplier;
+        double defence = 0.1 * upgradeMultiplier(upgrades, TerritoryUpgrade.DEFENCE);
+        double averageDamage = minDamage * 2.0;
+        double averageDps = averageDamage * attackSpeed;
+        double ehp = defence >= 1.0 ? Double.POSITIVE_INFINITY : health / (1.0 - defence);
+
+        return new TerritoryCombatStats(minDamage, maxDamage, attackSpeed, health, defence, averageDps, ehp);
+    }
+
+    private static double territoryMultiplier(int directConnections, int externalConnections, boolean headquarters) {
+        double connectionMultiplier = 1.0 + (0.3 * directConnections);
+        if (!headquarters) {
+            return connectionMultiplier;
+        }
+
+        return (1.5 + (0.25 * externalConnections)) * connectionMultiplier;
+    }
+
+    private static double upgradeMultiplier(Map<TerritoryUpgrade, Integer> upgrades, TerritoryUpgrade upgrade) {
+        int level = upgrades == null ? 0 : upgrades.getOrDefault(upgrade, 0);
+        TerritoryUpgrade.Level[] levels = upgrade.getLevels();
+        int clampedLevel = Math.clamp(level, 0, levels.length - 1);
+        return 1.0 + levels[clampedLevel].bonus() / 100.0;
+    }
+
+    private static int ownedConnections(TerritoryInfo info) {
+        String guild = info.getGuildName();
+        if (guild == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (String connection : info.getTradingRoutes()) {
+            TerritoryInfo connected = territoryInfo(connection);
+            if (connected != null && guild.equals(connected.getGuildName())) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static int ownedExternalConnections(TerritoryInfo info) {
+        String guild = info.getGuildName();
+        if (guild == null) {
+            return 0;
+        }
+
+        Set<TerritoryInfo> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+        ArrayDeque<TerritoryInfoDepth> queue = new ArrayDeque<>();
+        visited.add(info);
+        queue.addLast(new TerritoryInfoDepth(info, 0));
+
+        int count = 0;
+        while (!queue.isEmpty()) {
+            TerritoryInfoDepth current = queue.removeFirst();
+            if (current.depth() >= 3) {
+                continue;
+            }
+
+            for (String connection : current.info().getTradingRoutes()) {
+                TerritoryInfo connected = territoryInfo(connection);
+                if (connected == null || !visited.add(connected)) {
+                    continue;
+                }
+
+                if (guild.equals(connected.getGuildName())) count++;
+                queue.addLast(new TerritoryInfoDepth(connected, current.depth() + 1));
+            }
+        }
+
+        return count;
+    }
+
+    public static Set<String> reach(String start, int maxDepth) {
+        if (start == null || maxDepth <= 0) {
+            return Collections.emptySet();
+        }
+
+        TerritoryInfo startInfo = territoryInfo(start);
+        if (startInfo == null) {
+            return Collections.emptySet();
+        }
+
+        String guild = startInfo.getGuildName();
+        if (guild == null || guild.isBlank()) {
+            return Collections.emptySet();
+        }
+
+        Set<TerritoryInfo> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+        ArrayDeque<TerritoryInfoDepth> queue = new ArrayDeque<>();
+        visited.add(startInfo);
+        queue.addLast(new TerritoryInfoDepth(startInfo, 0));
+
+        Set<String> reachable = new HashSet<>();
+        while (!queue.isEmpty()) {
+            TerritoryInfoDepth current = queue.removeFirst();
+            if (current.depth() >= maxDepth) {
+                continue;
+            }
+
+            for (String connection : current.info().getTradingRoutes()) {
+                TerritoryInfo connected = territoryInfo(connection);
+                if (connected == null || !visited.add(connected)) {
+                    continue;
+                }
+
+                if (guild.equals(connected.getGuildName())) {
+                    reachable.add(connection);
+                }
+                queue.addLast(new TerritoryInfoDepth(connected, current.depth() + 1));
+            }
+        }
+
+        return reachable;
+    }
+
+    public static Pair<List<String>, List<String>> getResPaths(String territoryName) {
+        TerritoryInfo startTerr = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
+        String guild = startTerr.getGuildName();
+        if (guild == null)
+            return new Pair<>(List.of(), List.of());
+        Optional<String> HQName = getHQ(guild);
+        if (HQName.isEmpty())
+            return new Pair<>(List.of(), List.of());
+
+        var forward = getPath(HQName.get(), territoryName, true);
+        var backward = getPath(territoryName, HQName.get(), true);
+
+        return new Pair<>(forward, backward);
+    }
+
+    /**
+     * Calculate a path on the territory map from start territory to end territory.
+     *
+     * @param startTerritoryName Name of the start territory.
+     * @param endTerritoryName   Name of the end territory.
+     * @param cheapest           If true, estimates the cheapest path, otherwise the fastest.
+     * @return An empty list if there was no path found, otherwise a list of territory names on the path.
+     */
+    public static List<String> getPath(String startTerritoryName, String endTerritoryName, boolean cheapest) {
+        if (startTerritoryName.equals(endTerritoryName))
+            return List.of(startTerritoryName);
+
+        record Entry(String name, double cost, int distance) {
+        }
+        Queue<Entry> queue;
+        if (cheapest)
+            queue = new PriorityQueue<>(
+                    Comparator.comparingDouble(Entry::cost)
+                            .thenComparingInt(Entry::distance)
+            );
+        else
+            queue = new PriorityQueue<>(
+                    Comparator.comparingInt(Entry::distance)
+            );
+        Map<String, String> parents = new HashMap<>();
+        queue.add(new Entry(startTerritoryName, 1.0, 0));
+        parents.put(startTerritoryName, startTerritoryName);
+
+        String startGuild = Models.Territory.getTerritoryPoiFromAdvancement(startTerritoryName).getTerritoryInfo().getGuildName();
+        if (startGuild == null) startGuild = "";
+        String endGuild = Models.Territory.getTerritoryPoiFromAdvancement(endTerritoryName).getTerritoryInfo().getGuildName();
+        if (endGuild == null) endGuild = "";
+        boolean useAllies = Models.Guild.getGuildName().equals(startGuild);
+
+        boolean finished = false;
+        while (!queue.isEmpty() && !finished) {
+            Entry next = queue.poll();
+            String terrName = next.name();
+            double cost = next.cost();
+            int distance = next.distance();
+
+            List<String> conns = TerritoryBaseManager.getTerritory(terrName).connections();
+            for (String connName : conns) {
+                if (parents.containsKey(connName))
+                    continue;
+                if (connName.equals(endTerritoryName)) {
+                    finished = true;
+                    parents.put(connName, terrName);
+                    break;
+                }
+
+                double connCost = cost;
+                if (cheapest) {
+                    TerritoryInfo connInfo = Models.Territory.getTerritoryPoiFromAdvancement(connName).getTerritoryInfo();
+                    String connGuild = connInfo.getGuildName();
+                    if (startGuild.equals(connGuild) || endGuild.equals(connGuild)) {
+                        // No route tax.
+                    } else if (useAllies && Models.Guild.isAllied(connGuild)) {
+                        connCost *= 1.05;
+                    } else {
+                        connCost *= 1.7;
+                    }
+                }
+                queue.add(new Entry(connName, connCost, distance + 1));
+                parents.put(connName, terrName);
+            }
+        }
+
+        if (!finished)
+            return List.of();
+
+        List<String> path = new ArrayList<>();
+        String prev = endTerritoryName;
+        path.add(prev);
+        while (!prev.equals(startTerritoryName)) {
+            prev = parents.get(prev);
+            path.add(prev);
+        }
+
+        return path.reversed();
+    }
+
+    public static TerritoryInfo territoryInfoFromJson(JsonObject json) {
+        JsonObject guild = json.getAsJsonObject("guild");
+
+        TerritoryInfo info = new TerritoryInfo(
+                new String[0],
+                new StyledText[0],
+                json.get("hq").getAsBoolean()
+        );
+
+        TerritoryInfoAccessor accessor = (TerritoryInfoAccessor) info;
+
+        accessor.setGuildName(guild.get("name").getAsString());
+        accessor.setGuildPrefix(guild.get("prefix").getAsString());
+
+        accessor.setTreasury(GuildResourceValues.valueOf(json.get("treasury").getAsString()));
+        accessor.setDefences(GuildResourceValues.valueOf(json.get("defences").getAsString()));
+
+        for (JsonElement element : json.getAsJsonArray("resources")) {
+            JsonObject resource = element.getAsJsonObject();
+
+            String type = resource.get("type").getAsString();
+            int generation = resource.get("generation").getAsInt();
+            int stored = resource.get("stored").getAsInt();
+            int limit = resource.get("limit").getAsInt();
+
+            GuildResource guildResource = switch (type) {
+                case "EMERALD" -> GuildResource.EMERALDS;
+                case "ORE" -> GuildResource.ORE;
+                case "WOOD" -> GuildResource.WOOD;
+                case "FISH" -> GuildResource.FISH;
+                case "CROP" -> GuildResource.CROPS;
+                default -> null;
+            };
+
+            if (guildResource == null) {
+                continue;
+            }
+
+            if (generation > 0)
+                info.getGenerators().put(guildResource, generation);
+
+            info.getStorage().put(guildResource, new CappedValue(stored, limit));
+        }
+
+        for (JsonElement element : json.getAsJsonArray("links")) {
+            info.getTradingRoutes().add(element.getAsString());
+        }
+
+        return info;
+    }
+
+    private static class HQDistanceCache {
+        private final Map<String, Integer> cache = new HashMap<>();
+
+        public HQDistanceCache() {
+            REventBus.subscribe(this);
+        }
+
+        @Subscribe
+        public void onGuildMapUpdate(GuildMapUpdateEvent event) {
+            cache.clear();
+        }
+
+        public int get(String territoryName) {
+            Integer dist = cache.get(territoryName);
+
+            if (dist != null)
+                return dist;
+
+            computeHQDistances(territoryName);
+
+            return cache.getOrDefault(territoryName, Integer.MAX_VALUE);
+        }
+
+        // Start at HQ and use bfs to find distance to all territories.
+        private void computeHQDistances(String territoryName) {
+            TerritoryInfo startTerr = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
+            String guild = startTerr.getGuildName();
+            if (guild == null)
+                return;
+            Optional<String> HQName = getHQ(guild);
+            if (HQName.isEmpty())
+                return;
+            if (!territoryName.equals(HQName.get()) && cache.containsKey(HQName.get()))
+                return;
+
+            startTerr = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get()).getTerritoryInfo();
+            cache.put(HQName.get(), 0);
+
+            int cnt = getTerrCount(guild);
+            ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
+            Set<String> checked = new HashSet<>();
+            queue.add(new Pair<>(startTerr, 0));
+            checked.add(HQName.get());
+
+            while (!queue.isEmpty()) {
+                var next = queue.poll();
+                TerritoryInfo terr = next.a();
+                int dist = next.b();
+
+                List<String> conns = terr.getTradingRoutes();
+                for (String connName : conns) {
+                    if (checked.contains(connName))
+                        continue;
+                    checked.add(connName);
+
+                    TerritoryInfo conn = Models.Territory.getTerritoryPoiFromAdvancement(connName).getTerritoryInfo();
+                    if (guild.equals(conn.getGuildName())) {
+                        cache.put(connName, dist + 1);
+                        cnt--;
+                        if (cnt == 0)
+                            return;
+                    }
+                    queue.add(new Pair<>(conn, dist + 1));
+                }
+            }
+        }
+    }
+
+    private static class QueueTimeCache {
+        private final Map<String, Integer> cache = new HashMap<>();
+
+        public QueueTimeCache() {
+            REventBus.subscribe(this);
+        }
+
+        @Subscribe
+        public void onGuildMapUpdate(GuildMapUpdateEvent event) {
+            cache.clear();
+        }
+
+        public int get(String territoryName) {
+            Integer time = cache.get(territoryName);
+
+            if (time != null)
+                return time;
+
+            computeQueueTimes();
+
+            return cache.getOrDefault(territoryName, 2);
+        }
+
+        // Start at HQ and use bfs to find queue time to all territories.
+        private void computeQueueTimes() {
+            String guild = Models.Guild.getGuildName();
+            if (guild == null)
+                return;
+            Optional<String> HQName = getHQ(guild);
+            if (HQName.isEmpty()) {
+                return;
+            }
+
+            TerritoryInfo startTerr = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get()).getTerritoryInfo();
+            cache.put(HQName.get(), 1);
+
+            ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
+            Set<String> checked = new HashSet<>();
+            queue.add(new Pair<>(startTerr, 1));
+            checked.add(HQName.get());
+
+            while (!queue.isEmpty()) {
+                var next = queue.poll();
+                TerritoryInfo terr = next.a();
+                int time = next.b();
+
+                List<String> conns = terr.getTradingRoutes();
+                for (String connName : conns) {
+                    if (checked.contains(connName))
+                        continue;
+                    checked.add(connName);
+
+                    TerritoryInfo conn = Models.Territory.getTerritoryPoiFromAdvancement(connName).getTerritoryInfo();
+                    cache.put(connName, time + 1);
+                    queue.add(new Pair<>(conn, time + 1));
+                }
+            }
+        }
+    }
+}

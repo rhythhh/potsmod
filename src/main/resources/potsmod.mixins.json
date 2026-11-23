@@ -1,0 +1,45 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.pots.potsmod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "org.pots.potsmod.PotsmodMixinPlugin",
+  "mixins": [
+    "BossBarHudMixin",
+    "ClientPacketListenerMixin",
+    "MinecraftClientMixin",
+    "wynnextras.BankOverlayMixin"
+  ],
+  "client": [
+    "ChatComponentAccessor",
+    "ChatScreenMixin",
+    "ClientLoginNetworkHandlerMixin",
+    "ConnectScreenMixin",
+    "EditBoxAccessor",
+    "GameRendererAccessor",
+    "GameRendererMixin",
+    "GuiGraphicsAccessor",
+    "GuiGraphicsMixin",
+    "GuiRendererMixin",
+    "HandledScreenMixin",
+    "HeldItemRendererMixin",
+    "InGameHudMixin",
+    "PlayerListHudAccessor",
+    "wynntils.GuildMapScreenMixin",
+    "wynntils.TerritoryPoiMixin",
+    "wynntils.AbstractMapScreenAccessor",
+    "wynntils.TerritoryInfoAccessor",
+    "wynntils.TerritoryModelMixin",
+    "wynntils.TerritoryModelAccessor",
+    "wynntils.TerritoryAttackTimerMixin",
+    "wynntils.TerritoryManagementHolderMixin",
+    "wynntils.TerritoryManagementScreenMixin",
+    "wynntils.WynntilsModMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

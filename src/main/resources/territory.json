@@ -1,0 +1,6197 @@
+{
+  "Apprentice Huts": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Monte's Village",
+      "Iboju Village",
+      "Troms Lake"
+    ]
+  },
+  "Sulphuric Hollow": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ragni South Entrance",
+      "Little Wood",
+      "Troms"
+    ]
+  },
+  "Jofash Tunnel": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sky Island Ascent",
+      "Jofash Docks"
+    ]
+  },
+  "Abandoned Mines": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Mining Base Camp",
+      "Mine Base Plains"
+    ]
+  },
+  "Owl Tribe": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Sunset Plateau",
+      "Ancient Excavation",
+      "Almuj Slums",
+      "Eagle Tribe"
+    ]
+  },
+  "Chasm Overlook": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Chasm Chokepoint",
+      "Collapsed Bridge",
+      "Mantis Nest"
+    ]
+  },
+  "Abandoned Mines Entrance": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Black Road",
+      "Mining Base Camp",
+      "Mine Base Plains",
+      "Abandoned Pass",
+      "Ternaves"
+    ]
+  },
+  "Thesead Suburbs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Displaced Housing",
+      "Ranol's Farm",
+      "Entrance to Molten Heights",
+      "Thesead"
+    ]
+  },
+  "Rocky Shore": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Blackstring Den",
+      "Nemract",
+      "Jagged Foothills"
+    ]
+  },
+  "Burning Airship": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Burning Farm",
+      "Secluded Ponds",
+      "Bandit Cave"
+    ]
+  },
+  "Troll Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Parasitic Slime Mine",
+      "Featherfall Cliffs"
+    ]
+  },
+  "The Forgery": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Forgery",
+      "Path to Cinfras"
+    ]
+  },
+  "Corrupted Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Roots of Corruption",
+      "Akias Ruins",
+      "Corrupted Warfront",
+      "Elkurn"
+    ]
+  },
+  "Llevigar Gate": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sanguine Spider Den",
+      "Llevigar Stables",
+      "Orc Road",
+      "Llevigar"
+    ]
+  },
+  "Fallen Factory": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City Crossroads",
+      "Industrial Clearing",
+      "Ruined Houses",
+      "Relos",
+      "Corkus Sea Cove"
+    ]
+  },
+  "Citadel's Shadow": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Lake Gitephe",
+      "Gates to Aelumia",
+      "Fort Tericen"
+    ]
+  },
+  "Guild Hall": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cinfras"
+    ]
+  },
+  "Road to Elkurn": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Blooming Boulders",
+      "Elkurn",
+      "Tempo Town",
+      "Nivla Woods Exit"
+    ]
+  },
+  "Ancient Waterworks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Maltic Coast",
+      "Maltic",
+      "Farmers Settlement",
+      "Nomads' Refuge",
+      "Jagged Foothills"
+    ]
+  },
+  "Gelibord": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Enchanted River",
+      "Gelibord Watermill",
+      "Twisted Housing",
+      "Entrance to Kander"
+    ]
+  },
+  "Maro Peaks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Skien's Island",
+      "Tree Island"
+    ]
+  },
+  "Paths of Sludge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Lutho",
+      "Toxic Drip"
+    ]
+  },
+  "Fleris Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 7200,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Road to Light Forest"
+    ]
+  },
+  "Heart of Decay": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lexdale",
+      "Decayed Basin",
+      "Mushroom Hill"
+    ]
+  },
+  "Cinfras's Small Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Big Mushroom Cave",
+      "Paper Trail",
+      "Silverbull Headquarters",
+      "Felroc Fields"
+    ]
+  },
+  "Lava Lakes": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dogun Ritual Site",
+      "Crater Descent",
+      "Pyroclastic Flow"
+    ]
+  },
+  "Protector's Pathway": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Featherfall Cliffs",
+      "Elefolk Stomping Grounds",
+      "Elephelk Trail",
+      "Kandon-Beda"
+    ]
+  },
+  "Cliffside Passage South": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Elephelk Trail",
+      "Cliffside Passage North"
+    ]
+  },
+  "Essren's Hut": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Detlas",
+      "Lava Springs",
+      "Mine Base Plains",
+      "Black Road"
+    ]
+  },
+  "Cyclospordial Hazard": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Cascading Basins",
+      "Winding Waters",
+      "Turncoat Turnabout"
+    ]
+  },
+  "Iron Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Meteor Crater",
+      "Goblin Plains West",
+      "Forgotten Path",
+      "Lizardman Camp"
+    ]
+  },
+  "Aldorei Springs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Aldorei Valley Outskirts",
+      "Outer Aldorei Town",
+      "Mantis Nest"
+    ]
+  },
+  "Cliffside Passage North": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cliffside Passage South",
+      "Thesead Underpass"
+    ]
+  },
+  "Lexdale Penitentiary": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 7200,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Penitentiary",
+      "Twisted Ridge"
+    ]
+  },
+  "Molten Reach": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dogun Ritual Site",
+      "Angel Refuge"
+    ]
+  },
+  "Almuj": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gloopy Cave",
+      "Ruined Villa",
+      "Almuj Slums",
+      "Entrance to Almuj",
+      "Dusty Pit"
+    ]
+  },
+  "The Hive": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Path to the Dojo",
+      "Illuminant Path"
+    ]
+  },
+  "Great Bridge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Icy Vigil",
+      "Jungle Entrance"
+    ]
+  },
+  "Lizardman Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bloody Trail",
+      "Entrance to Olux",
+      "Swamp Mountain Arch",
+      "Iron Road"
+    ]
+  },
+  "Troms Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Apprentice Huts",
+      "Temple of Legends",
+      "Troms",
+      "Herb Cave"
+    ]
+  },
+  "Secluded Workshop": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Infested Sinkhole",
+      "Scorpion Nest",
+      "Naga Lake"
+    ]
+  },
+  "Hyloch": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Lake Gitephe",
+      "Fort Tericen",
+      "Lake Rieke"
+    ]
+  },
+  "Broken Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Silent Road",
+      "Worm Tunnel"
+    ]
+  },
+  "Sinister Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forest of Eyes",
+      "Lutho"
+    ]
+  },
+  "Unicorn Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Forgery",
+      "Guardian of the Forest",
+      "Dodegar's Forge",
+      "Collapsed Bridge"
+    ]
+  },
+  "Corkus Sea Cove": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fallen Factory",
+      "Road to Mine",
+      "Corkus City Mine",
+      "Relos"
+    ]
+  },
+  "Kandon Ridge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Kandon Farm",
+      "Aerial Descent",
+      "Old Coal Mine",
+      "Temple Island"
+    ]
+  },
+  "Volcanic Isles": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Volcanic Excavation",
+      "Tree Island",
+      "Lost Atoll",
+      "Pirate Town",
+      "Light Peninsula"
+    ]
+  },
+  "Timasca": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "University Campus",
+      "Residence Sector",
+      "Industrial Sector",
+      "Deforested Ecotone"
+    ]
+  },
+  "Deforested Ecotone": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Timasca",
+      "Verdant Grove",
+      "Aldwell"
+    ]
+  },
+  "Akias Ruins": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Corrupted Orchard",
+      "Nivla Woods Exit",
+      "Corrupted Warfront",
+      "Corrupted Tower",
+      "Corrupted Road"
+    ]
+  },
+  "Secluded Ponds": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Burning Airship",
+      "Path to Thanos",
+      "Celestial Impact",
+      "Path to Ozoth's Spire"
+    ]
+  },
+  "Dogun Ritual Site": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Freezing Heights",
+      "Lava Lakes",
+      "Crater Descent",
+      "Molten Reach"
+    ]
+  },
+  "Iboju Village": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Apprentice Huts",
+      "Fountain of Youth"
+    ]
+  },
+  "Raiders' Airbase": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Raiders' Stronghold"
+    ]
+  },
+  "Nesaak Transition": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Florist's Hut",
+      "Desolate Valley",
+      "Elkurn",
+      "Corrupted River"
+    ]
+  },
+  "Retrofitted Manufactory": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City",
+      "Avos Territory",
+      "Corkus Outskirts",
+      "Avos Temple"
+    ]
+  },
+  "Sky Falls": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Frozen Fort",
+      "Wybel Island",
+      "Sky Island Ascent"
+    ]
+  },
+  "Mangled Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bloody Trail",
+      "Overtaken Outpost",
+      "Caritat Mansion",
+      "Orc Battlegrounds"
+    ]
+  },
+  "Grey Ruins": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Worm Tunnel",
+      "Forgotten Town"
+    ]
+  },
+  "Cliffhearth Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Sanguine Spider Den",
+      "Llevigar Stables",
+      "Meteor Trail"
+    ]
+  },
+  "Llevigar": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Gavel",
+      "Llevigar Gate",
+      "Karoc Quarry"
+    ]
+  },
+  "Dreary Docks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Dujgon Nation",
+      "Disturbed Crypt",
+      "Derelict Mansion",
+      "Skien's Island"
+    ]
+  },
+  "Gylia Research Cabin": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fallen Village",
+      "Cosmic Fissures",
+      "Gylia Lakehouse"
+    ]
+  },
+  "Cathedral Harbour": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Savannah Plains",
+      "Ancient Nemract",
+      "Nemract Cathedral",
+      "Durum Oat Islet",
+      "Durum Malt Islet",
+      "Scorched Trail"
+    ]
+  },
+  "Relos": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fallen Factory",
+      "Ruined Houses",
+      "Balloon Airbase",
+      "Corkus Sea Cove"
+    ]
+  },
+  "Orc Battlegrounds": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Centerworld Fortress",
+      "Mangled Lake"
+    ]
+  },
+  "Maltic": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Ragni Countryside North",
+      "Coastal Trail",
+      "Maltic Coast",
+      "Ancient Waterworks",
+      "Farmers Settlement"
+    ]
+  },
+  "Volcanic Excavation": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Volcanic Isles",
+      "Bloody Beach",
+      "Entrance to Gavel",
+      "Light Peninsula"
+    ]
+  },
+  "Inhospitable Mountain": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Ozoth's Spire",
+      "Perilous Grotto"
+    ]
+  },
+  "Sanctuary Bridge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Time Valley",
+      "Frosty Spikes"
+    ]
+  },
+  "Frozen Homestead": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Frigid Crossroads",
+      "Frosty Spikes",
+      "Abandoned Lumberyard",
+      "Nesaak",
+      "Florist's Hut"
+    ]
+  },
+  "Fading Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Olux Lumberyard",
+      "Lizardman Lake",
+      "Gelibord Watermill",
+      "Castle Dullahan",
+      "Overtaken Outpost"
+    ]
+  },
+  "Canyon Walkway": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Molten Passage",
+      "Wizard's Warning",
+      "Bandit's Toll"
+    ]
+  },
+  "Icy Vigil": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Frigid Crossroads",
+      "Great Bridge"
+    ]
+  },
+  "Cherry Blossom Grove": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Dojo",
+      "Displaced Housing",
+      "Ranol's Farm"
+    ]
+  },
+  "Royal Barracks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "The Lumbermill",
+      "Gates to Aelumia",
+      "University Campus"
+    ]
+  },
+  "Ternaves": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ternaves Tunnel",
+      "Black Road",
+      "Abandoned Mines Entrance"
+    ]
+  },
+  "Perilous Grotto": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Inhospitable Mountain",
+      "Perilous Passage",
+      "Wizard's Warning"
+    ]
+  },
+  "Canyon Dropoff": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Rocky Bend",
+      "Featherfall Cliffs"
+    ]
+  },
+  "Path to the Penitentiary": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lexdale Penitentiary",
+      "Entrance to Kander",
+      "Viscera Pits",
+      "Twisted Ridge"
+    ]
+  },
+  "Eltom": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ranol's Farm",
+      "Entrance to Molten Heights"
+    ]
+  },
+  "Orc Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Trunkstump Goblin Camp",
+      "Stonecave Orc Camp",
+      "Sunspark Orc Camp",
+      "Sablestone Orc Camp",
+      "Orc Road"
+    ]
+  },
+  "Gates to Aelumia": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Royal Barracks",
+      "Citadel's Shadow",
+      "Contested District"
+    ]
+  },
+  "Brigand Outpost": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Meteor Trail",
+      "Stonecave Orc Camp",
+      "Collapsed Emerald Mine"
+    ]
+  },
+  "Xima Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fort Torann"
+    ]
+  },
+  "Goblin Plains East": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Goblin Plains West",
+      "Llevigar Farm",
+      "Forgotten Path",
+      "Entrance to Bucie"
+    ]
+  },
+  "Avos Temple": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Ava's Workshop",
+      "Bloody Beach",
+      "Retrofitted Manufactory"
+    ]
+  },
+  "Panda Kingdom": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Panda Path",
+      "Parasitic Slime Mine"
+    ]
+  },
+  "Frozen Fort": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Sky Falls"
+    ]
+  },
+  "Wayward Split": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cascading Basins",
+      "Turncoat Turnabout",
+      "Perilous Passage",
+      "Harpy's Haunt South"
+    ]
+  },
+  "Forest of Eyes": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forgotten Town",
+      "Sinister Forest"
+    ]
+  },
+  "Pirate Town": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Zhight Island",
+      "Bloody Beach",
+      "Lost Atoll",
+      "Volcanic Isles"
+    ]
+  },
+  "Pine Pillar Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Waterfall Cave",
+      "Timeworn Arch",
+      "Evergreen Outbreak"
+    ]
+  },
+  "Bantisu Approach": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Krolton's Cave",
+      "Workshop Glade",
+      "Bantisu Air Temple"
+    ]
+  },
+  "Detlas": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Detlas Suburbs",
+      "Essren's Hut",
+      "Scorched Trail"
+    ]
+  },
+  "Featherfall Cliffs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Canyon Dropoff",
+      "Housing Crisis",
+      "Protector's Pathway",
+      "Elefolk Stomping Grounds",
+      "Troll Tower"
+    ]
+  },
+  "Minotaur Barbecue": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Efilim",
+      "Path to the Forgery"
+    ]
+  },
+  "Path to Light's Secret": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Wood Sprite Hideaway",
+      "Luxuriant Pond",
+      "Heavenly Ingress"
+    ]
+  },
+  "Overtaken Outpost": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fading Forest",
+      "Mangled Lake",
+      "Caritat Mansion",
+      "Bloody Trail"
+    ]
+  },
+  "Meteor Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cliffhearth Orc Camp",
+      "Trunkstump Goblin Camp",
+      "Brigand Outpost",
+      "Sanguine Spider Den"
+    ]
+  },
+  "Thesead Underpass": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cliffside Passage North",
+      "Entrance to Thesead",
+      "Workshop Glade"
+    ]
+  },
+  "Sunspark Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Stonecave Orc Camp",
+      "Mudspring Orc Camp",
+      "Orc Lake",
+      "Meteor Crater",
+      "Swamp Mountain Arch"
+    ]
+  },
+  "Entamis Village": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Monte's Village",
+      "Fountain of Youth"
+    ]
+  },
+  "Outer Aldorei Town": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Aldorei Springs",
+      "Aldorei Valley"
+    ]
+  },
+  "Toxic Drip": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Paths of Sludge",
+      "Toxic Caves",
+      "Gateway to Nothing"
+    ]
+  },
+  "Aldorei Valley Outskirts": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "The Shiar",
+      "Mantis Nest",
+      "Aldorei Springs"
+    ]
+  },
+  "Winding Waters": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cyclospordial Hazard",
+      "Parasitic Slime Mine"
+    ]
+  },
+  "Naga Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Forgotten Burrows",
+      "Secluded Workshop",
+      "Path to the Grootslangs",
+      "Infested Sinkhole"
+    ]
+  },
+  "Shady Shack": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Maiden Tower",
+      "Forgotten Burrows",
+      "Entrance to Olux",
+      "Swamp Mountain Arch"
+    ]
+  },
+  "Paper Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cinfras's Small Farm",
+      "Silverbull Headquarters",
+      "Waterfall Cave"
+    ]
+  },
+  "Illuminant Path": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Thanos Exit",
+      "Bandit's Toll",
+      "Canyon High Path",
+      "The Hive",
+      "Path to the Dojo"
+    ]
+  },
+  "Forgotten Path": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Bloody Trail",
+      "Iron Road",
+      "Goblin Plains East"
+    ]
+  },
+  "Ruined Prospect": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Rymek",
+      "Sunset Plateau"
+    ]
+  },
+  "Guardian of the Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Efilim Crossroads",
+      "Wood Sprite Hideaway",
+      "Unicorn Trail"
+    ]
+  },
+  "Olux": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lizardman Lake",
+      "Olux Lumberyard",
+      "Entrance to Olux",
+      "Path to the Grootslangs"
+    ]
+  },
+  "Lava Springs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ternaves Tunnel",
+      "Black Road",
+      "Savannah Plains",
+      "Essren's Hut"
+    ]
+  },
+  "Road to Light Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Centerworld Fortress",
+      "Wood Sprite Hideaway",
+      "Fleris Trail"
+    ]
+  },
+  "Thanos Underpass": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Troll's Challenge"
+    ]
+  },
+  "Shineridge Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Karoc Quarry",
+      "Bucie Waterfall",
+      "Loamsprout Orc Camp",
+      "Llevigar Farm"
+    ]
+  },
+  "Path to the Dojo": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Illuminant Path",
+      "The Hive",
+      "Displaced Housing",
+      "Canyon High Path",
+      "Cherry Blossom Grove"
+    ]
+  },
+  "Dodegar's Forge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Wood Sprite Hideaway",
+      "Luxuriant Pond",
+      "Unicorn Trail",
+      "Mycelial Expanse"
+    ]
+  },
+  "Wybel Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ahmsord Outskirts",
+      "Central Islands",
+      "Sky Falls"
+    ]
+  },
+  "Herb Cave": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Jungle Entrance",
+      "Troms Lake"
+    ]
+  },
+  "Cinfras Outskirts": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dark Forest Village",
+      "Talor Cemetery",
+      "Fungal Grove",
+      "Fallen Village",
+      "Cinfras"
+    ]
+  },
+  "Bizarre Passage": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Final Step",
+      "The Gate"
+    ]
+  },
+  "Southern Outpost": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Legendary Island",
+      "Balloon Airbase"
+    ]
+  },
+  "Ternaves Tunnel": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Almuj",
+      "Lava Springs",
+      "Ternaves"
+    ]
+  },
+  "The Lumbermill": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forts in Fall",
+      "Espren",
+      "Royal Barracks"
+    ]
+  },
+  "Water Processing Sector": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Industrial Sector",
+      "Agricultural Sector"
+    ]
+  },
+  "Entrance to Almuj": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Almuj",
+      "Ternaves Tunnel",
+      "Savannah Plains"
+    ]
+  },
+  "Floral Peaks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Mudspring Orc Camp",
+      "Ogre Den",
+      "Maiden Tower",
+      "Swamp Mountain Arch"
+    ]
+  },
+  "Efilim Crossroads": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Efilim",
+      "Path to the Forgery",
+      "Guardian of the Forest"
+    ]
+  },
+  "Twisted Housing": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Efilim",
+      "Enchanted River",
+      "Gelibord",
+      "Caritat Mansion",
+      "Gelibord Watermill"
+    ]
+  },
+  "Avos Territory": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Picnic Pond",
+      "Overrun Docks",
+      "Retrofitted Manufactory"
+    ]
+  },
+  "Ahmsord Outskirts": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Swamp Island",
+      "Angel Refuge",
+      "Wybel Island",
+      "Central Islands"
+    ]
+  },
+  "Invaded Barracks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Barren Sands"
+    ]
+  },
+  "Razed Inn": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Mount Wynn Inn",
+      "Corrupted Tower"
+    ]
+  },
+  "Silverbull Headquarters": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Paper Trail",
+      "Celestial Impact",
+      "Cinfras's Small Farm"
+    ]
+  },
+  "Entrance to Bucie": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Llevigar Farm",
+      "Goblin Plains East",
+      "Centerworld Fortress",
+      "Bucie Waterfall"
+    ]
+  },
+  "Lost Atoll": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 7200,
+      "crops": 0
+    },
+    "links": [
+      "Pirate Town",
+      "Volcanic Isles",
+      "Tree Island"
+    ]
+  },
+  "Workshop Glade": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bandit's Toll",
+      "Bantisu Approach",
+      "Thesead Underpass",
+      "Entrance to Thesead"
+    ]
+  },
+  "Nexus of Light": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Azure Frontier"
+    ]
+  },
+  "Industrial Sector": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Timasca",
+      "Agricultural Sector",
+      "Water Processing Sector"
+    ]
+  },
+  "Delnar Manor": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 7200,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fountain of Youth"
+    ]
+  },
+  "Agricultural Sector": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Espren",
+      "Residence Sector",
+      "Water Processing Sector",
+      "Industrial Sector"
+    ]
+  },
+  "Central Islands": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ahmsord",
+      "Temple Island",
+      "Ahmsord Outskirts",
+      "Wybel Island",
+      "Sky Island Ascent"
+    ]
+  },
+  "Nomads' Refuge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Nivla Woods",
+      "Farmers Settlement",
+      "Arachnid Woods",
+      "Ancient Waterworks",
+      "Webbed Fracture"
+    ]
+  },
+  "Verdant Grove": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Contested District",
+      "Aldwell",
+      "Deforested Ecotone",
+      "Highlands Gate"
+    ]
+  },
+  "Myconid Descent": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Chasm Chokepoint",
+      "Mantis Nest"
+    ]
+  },
+  "Sablestone Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Orc Lake",
+      "Meteor Crater",
+      "Loamsprout Orc Camp",
+      "Goblin Plains West"
+    ]
+  },
+  "Elephelk Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Cliffside Passage South",
+      "Protector's Pathway"
+    ]
+  },
+  "Sunset Plateau": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Sunrise Plateau",
+      "Ruined Prospect",
+      "Owl Tribe"
+    ]
+  },
+  "Big Mushroom Cave": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cinfras's Small Farm",
+      "Aldorei Cliffside Waterfalls",
+      "Waterfall Cave"
+    ]
+  },
+  "Ava's Workshop": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Avos Temple"
+    ]
+  },
+  "Elkurn": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Road to Elkurn",
+      "Corrupted Road",
+      "Frosty Spikes",
+      "Tempo Town",
+      "Nesaak Transition",
+      "Corrupted River"
+    ]
+  },
+  "Regular Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dujgon Nation",
+      "Jofash Docks",
+      "Icy Island",
+      "Disturbed Crypt"
+    ]
+  },
+  "Balloon Airbase": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Relos",
+      "Lighthouse Lookout",
+      "Southern Outpost"
+    ]
+  },
+  "Llevigar Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Loamsprout Orc Camp",
+      "Goblin Plains West",
+      "Goblin Plains East",
+      "Entrance to Bucie",
+      "Shineridge Orc Camp",
+      "Bucie Waterfall"
+    ]
+  },
+  "Aldorei Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Outer Aldorei Town",
+      "Aldorei Cliffside Waterfalls"
+    ]
+  },
+  "Forts in Fall": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fort Torann",
+      "Royal Dam",
+      "The Frog Bog",
+      "Espren",
+      "The Lumbermill"
+    ]
+  },
+  "Nested Cliffside": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Nivla Woods Exit",
+      "Mount Wynn Inn",
+      "Blackstring Den",
+      "Webbed Fracture"
+    ]
+  },
+  "Maiden Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Floral Peaks",
+      "Witching Road",
+      "Forgotten Burrows",
+      "Shady Shack"
+    ]
+  },
+  "Savannah Plains": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Entrance to Almuj",
+      "Lava Springs",
+      "Bremminglar",
+      "Cathedral Harbour"
+    ]
+  },
+  "Krolton's Cave": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Harpy's Haunt North",
+      "Wizard Tower",
+      "Bantisu Approach",
+      "Hobgoblin's Hoard"
+    ]
+  },
+  "Lighthouse Lookout": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Royal Gate",
+      "Balloon Airbase"
+    ]
+  },
+  "Upper Thanos": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Thanos",
+      "Troll's Challenge"
+    ]
+  },
+  "Ragni Countryside South": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ragni Main Entrance",
+      "Ragni Countryside North",
+      "Farmers Settlement"
+    ]
+  },
+  "Mesquis Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Cinfras",
+      "Faltach Manor",
+      "Kander Mines",
+      "Entrance to Cinfras"
+    ]
+  },
+  "Fleris Cranny": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Harpy's Haunt South",
+      "Elefolk Stomping Grounds"
+    ]
+  },
+  "Ahmsord": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Temple Island",
+      "Path to Ahmsord",
+      "Aerial Descent",
+      "Sky Island Ascent",
+      "Central Islands"
+    ]
+  },
+  "Collapsed Emerald Mine": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 7200,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Brigand Outpost",
+      "Mudspring Orc Camp",
+      "Ogre Den"
+    ]
+  },
+  "Kander Mines": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Faltach Manor",
+      "Mesquis Tower",
+      "Path to Talor",
+      "Dark Forest Village"
+    ]
+  },
+  "Path to Thanos": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Secluded Ponds",
+      "Thanos",
+      "Gylia Fisherman Camp",
+      "Path to Ozoth's Spire"
+    ]
+  },
+  "Rocky Bend": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 7200,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Canyon Dropoff"
+    ]
+  },
+  "Ragni South Entrance": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Pigmen Ravines",
+      "Sulphuric Hollow",
+      "Ragni"
+    ]
+  },
+  "Aldwell": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Deforested Ecotone",
+      "Fort Hegea",
+      "Alder Understory",
+      "Verdant Grove"
+    ]
+  },
+  "Gelibord Watermill": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gelibord",
+      "Castle Dullahan",
+      "Twisted Housing",
+      "Fading Forest"
+    ]
+  },
+  "Pigmen Ravines": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ragni South Entrance",
+      "Abandoned Farm"
+    ]
+  },
+  "Corkus City Mine": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Road to Mine",
+      "Founder's Statue",
+      "Corkus Sea Cove"
+    ]
+  },
+  "Rodoroc": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Crater Descent",
+      "Entrance to Molten Heights"
+    ]
+  },
+  "Dujgon Nation": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Nodguj Nation",
+      "Disturbed Crypt",
+      "Icy Island",
+      "Dreary Docks",
+      "Regular Island"
+    ]
+  },
+  "Fountain of Youth": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Entamis Village",
+      "Delnar Manor",
+      "Iboju Village"
+    ]
+  },
+  "Scorpion Nest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Secluded Workshop"
+    ]
+  },
+  "Celestial Impact": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Silverbull Headquarters",
+      "Gylia Fisherman Camp",
+      "Secluded Ponds"
+    ]
+  },
+  "Nemract Cathedral": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Nemract",
+      "Mount Wynn Inn",
+      "Ancient Nemract",
+      "Cathedral Harbour"
+    ]
+  },
+  "Mount Wynn Inn": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Nemract",
+      "Nested Cliffside",
+      "Razed Inn",
+      "Ancient Nemract",
+      "Blackstring Den",
+      "Nemract Cathedral"
+    ]
+  },
+  "Toxic Caves": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Toxic Drip"
+    ]
+  },
+  "Gloopy Cave": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Barren Sands",
+      "Cascading Oasis",
+      "Ruined Villa",
+      "Almuj"
+    ]
+  },
+  "Half Moon Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 7200
+    },
+    "links": [
+      "Mage Island"
+    ]
+  },
+  "Swamp Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Temple Island",
+      "Astraulus' Tower",
+      "Ahmsord Outskirts"
+    ]
+  },
+  "Icy Descent": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Tower of Ascension",
+      "Lusuco",
+      "Frigid Crossroads"
+    ]
+  },
+  "Maltic Coast": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 3600
+    },
+    "links": [
+      "Coastal Trail",
+      "Maltic",
+      "Jagged Foothills",
+      "Ancient Waterworks"
+    ]
+  },
+  "Jagged Foothills": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Maltic Coast",
+      "Ancient Waterworks",
+      "Rocky Shore"
+    ]
+  },
+  "Rooster Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Nemract",
+      "Selchar",
+      "Bear Zoo",
+      "Durum Malt Islet"
+    ]
+  },
+  "Nemract": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mount Wynn Inn",
+      "Nemract Cathedral",
+      "Rocky Shore",
+      "Rooster Island"
+    ]
+  },
+  "Sanguine Spider Den": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Llevigar Gate",
+      "Cliffhearth Orc Camp",
+      "Meteor Trail"
+    ]
+  },
+  "Emerald Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ragni Main Entrance",
+      "Entrance to Nivla Woods",
+      "Farmers Settlement"
+    ]
+  },
+  "Lake Rieke": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Hyloch",
+      "Frosty Outpost",
+      "Fort Tericen"
+    ]
+  },
+  "Dusty Pit": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Cascading Oasis",
+      "Almuj"
+    ]
+  },
+  "Bremminglar": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Savannah Plains",
+      "Lion Lair"
+    ]
+  },
+  "Field of Life": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Luminous Plateau",
+      "Heavenly Ingress",
+      "Primal Fen",
+      "Azure Frontier"
+    ]
+  },
+  "Corrupted Warfront": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corrupted Road",
+      "Roots of Corruption",
+      "Corrupted Orchard",
+      "Detlas Suburbs",
+      "Akias Ruins",
+      "Plains Lake"
+    ]
+  },
+  "Arachnid Woods": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Alekin",
+      "Nivla Woods Exit",
+      "Nomads' Refuge",
+      "Webbed Fracture"
+    ]
+  },
+  "Kitrios Barracks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Kitrios Armory",
+      "Colourful Mountaintop",
+      "Gylia Watchtower"
+    ]
+  },
+  "Displaced Housing": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Dojo",
+      "Cherry Blossom Grove",
+      "Entrance to Thesead",
+      "Thesead Suburbs"
+    ]
+  },
+  "Wizard's Warning": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 7200,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Canyon Walkway",
+      "Perilous Grotto"
+    ]
+  },
+  "Mycelial Expanse": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dodegar's Forge",
+      "Collapsed Bridge",
+      "The Shiar",
+      "Mantis Nest"
+    ]
+  },
+  "Stonecave Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Trunkstump Goblin Camp",
+      "Brigand Outpost",
+      "Mudspring Orc Camp",
+      "Orc Lake",
+      "Sunspark Orc Camp"
+    ]
+  },
+  "Centerworld Fortress": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Bucie",
+      "Road to Light Forest",
+      "Orc Battlegrounds"
+    ]
+  },
+  "Kitrios Armory": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Thanos",
+      "Kitrios Barracks"
+    ]
+  },
+  "Harpy's Haunt South": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Wayward Split",
+      "Harpy's Haunt North",
+      "Fleris Cranny"
+    ]
+  },
+  "Mushroom Hill": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Decayed Basin",
+      "Heart of Decay",
+      "Weird Clearing",
+      "Jitak's Farm"
+    ]
+  },
+  "Trunkstump Goblin Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Llevigar Stables",
+      "Meteor Trail",
+      "Stonecave Orc Camp",
+      "Orc Lake"
+    ]
+  },
+  "Gylia Watchtower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Cosmic Fissures",
+      "Gylia Lakehouse",
+      "Kitrios Barracks",
+      "Gert Camp"
+    ]
+  },
+  "Derelict Mansion": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Lifeless Forest",
+      "Dreary Docks"
+    ]
+  },
+  "Ancient Excavation": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Owl Tribe",
+      "Ruined Villa",
+      "Almuj Slums"
+    ]
+  },
+  "Primal Fen": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Field of Life"
+    ]
+  },
+  "Mudspring Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Stonecave Orc Camp",
+      "Collapsed Emerald Mine",
+      "Floral Peaks",
+      "Sunspark Orc Camp"
+    ]
+  },
+  "Alekin": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Nivla Woods",
+      "Blooming Boulders",
+      "Arachnid Woods",
+      "Nivla Woods Exit"
+    ]
+  },
+  "Otherworldly Monolith": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Azure Frontier",
+      "Path to Light"
+    ]
+  },
+  "Troms": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Troms Lake",
+      "Temple of Legends",
+      "Sulphuric Hollow"
+    ]
+  },
+  "Disturbed Crypt": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dujgon Nation",
+      "Lifeless Forest",
+      "Dreary Docks",
+      "Regular Island"
+    ]
+  },
+  "Turncoat Turnabout": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cyclospordial Hazard",
+      "Parasitic Slime Mine",
+      "Wayward Split"
+    ]
+  },
+  "Jofash Docks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Jofash Tunnel",
+      "Regular Island",
+      "Lifeless Forest"
+    ]
+  },
+  "Gert Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Gylia Watchtower",
+      "Jitak's Farm"
+    ]
+  },
+  "Mine Base Plains": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Abandoned Mines Entrance",
+      "Mining Base Camp",
+      "Abandoned Mines",
+      "Plains Lake",
+      "Silent Road",
+      "Essren's Hut"
+    ]
+  },
+  "Faltach Manor": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Enchanted River",
+      "Entrance to Kander",
+      "Mesquis Tower",
+      "Kander Mines"
+    ]
+  },
+  "Ragni Countryside North": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Riverbank Knoll",
+      "Ragni Countryside South",
+      "Coastal Trail",
+      "Maltic"
+    ]
+  },
+  "Barren Sands": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Invaded Barracks",
+      "Accursed Dunes",
+      "Gloopy Cave"
+    ]
+  },
+  "Path to Cinfras": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "The Forgery",
+      "Entrance to Cinfras",
+      "Mesquis Tower"
+    ]
+  },
+  "Ruined Houses": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fallen Factory",
+      "Industrial Clearing",
+      "Relos"
+    ]
+  },
+  "Decayed Basin": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lexdale",
+      "Fungal Grove",
+      "Heart of Decay",
+      "Mushroom Hill"
+    ]
+  },
+  "Parasitic Slime Mine": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Troll Tower",
+      "Panda Kingdom",
+      "Turncoat Turnabout",
+      "Winding Waters"
+    ]
+  },
+  "Icy Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Dujgon Nation",
+      "Nodguj Nation",
+      "Santa's Hideout",
+      "Regular Island"
+    ]
+  },
+  "Perilous Passage": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Perilous Grotto",
+      "Wayward Split"
+    ]
+  },
+  "Waterfall Cave": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Big Mushroom Cave",
+      "Paper Trail",
+      "Pine Pillar Forest"
+    ]
+  },
+  "Efilim": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Efilim Crossroads",
+      "Minotaur Barbecue",
+      "Twisted Housing"
+    ]
+  },
+  "Wolves' Den": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bob's Tomb",
+      "Frigid Crossroads",
+      "Nesaak"
+    ]
+  },
+  "Corkus Castle": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City"
+    ]
+  },
+  "Lexdale": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Viscera Pits",
+      "Old Crossroads",
+      "Decayed Basin",
+      "Heart of Decay"
+    ]
+  },
+  "Skien's Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Selchar",
+      "Nodguj Nation",
+      "Dreary Docks",
+      "Maro Peaks"
+    ]
+  },
+  "Castle Dullahan": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Gelibord Watermill",
+      "Fading Forest"
+    ]
+  },
+  "Residence Sector": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Timasca",
+      "Agricultural Sector"
+    ]
+  },
+  "Royal Dam": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forts in Fall",
+      "Lake Gitephe"
+    ]
+  },
+  "Olux Lumberyard": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lizardman Lake",
+      "Olux",
+      "Fading Forest"
+    ]
+  },
+  "Lutho": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Sinister Forest",
+      "Paths of Sludge"
+    ]
+  },
+  "Founder's Statue": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City Mine",
+      "Corkus Outskirts"
+    ]
+  },
+  "Monte's Village": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Jungle Entrance",
+      "Apprentice Huts",
+      "Entamis Village"
+    ]
+  },
+  "Highlands Gate": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Verdant Grove",
+      "Alder Understory"
+    ]
+  },
+  "Thanos": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Kitrios Armory",
+      "Cosmic Fissures",
+      "Upper Thanos",
+      "Path to Thanos"
+    ]
+  },
+  "Crater Descent": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dogun Ritual Site",
+      "Lava Lakes",
+      "Rodoroc"
+    ]
+  },
+  "Riverbank Knoll": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ragni North Entrance",
+      "Katoa Ranch",
+      "Ragni Countryside North"
+    ]
+  },
+  "Frigid Crossroads": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Wolves' Den",
+      "Frozen Homestead",
+      "Nesaak",
+      "Twain Lake",
+      "Icy Vigil",
+      "Icy Descent"
+    ]
+  },
+  "Dark Forest Village": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Kander Mines",
+      "Path to Talor",
+      "Talor Cemetery",
+      "Cinfras Outskirts"
+    ]
+  },
+  "Ragni North Entrance": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Katoa Ranch",
+      "Riverbank Knoll",
+      "Ragni"
+    ]
+  },
+  "Twain Mansion": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Twain Lake"
+    ]
+  },
+  "Nivla Woods Exit": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Alekin",
+      "Arachnid Woods",
+      "Road to Elkurn",
+      "Akias Ruins",
+      "Nested Cliffside"
+    ]
+  },
+  "Bloody Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lizardman Lake",
+      "Lizardman Camp",
+      "Entrance to Olux",
+      "Forgotten Path",
+      "Overtaken Outpost",
+      "Mangled Lake"
+    ]
+  },
+  "Roots of Corruption": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Corrupted Road",
+      "Corrupted River",
+      "Corrupted Warfront",
+      "Plains Lake"
+    ]
+  },
+  "Timeworn Arch": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Pine Pillar Forest",
+      "Panda Path"
+    ]
+  },
+  "Kandon-Beda": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Protector's Pathway"
+    ]
+  },
+  "Road to Mine": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City Crossroads",
+      "Corkus City Mine",
+      "Corkus Sea Cove"
+    ]
+  },
+  "Caritat Mansion": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Overtaken Outpost",
+      "Mangled Lake",
+      "Twisted Housing"
+    ]
+  },
+  "Blooming Boulders": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Road to Time Valley",
+      "Tempo Town",
+      "Nivla Woods",
+      "Road to Elkurn",
+      "Alekin"
+    ]
+  },
+  "Housing Crisis": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Featherfall Cliffs"
+    ]
+  },
+  "Cascading Basins": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cyclospordial Hazard",
+      "Wayward Split"
+    ]
+  },
+  "Picnic Pond": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City",
+      "Corkus Forest",
+      "Avos Territory"
+    ]
+  },
+  "Harpy's Haunt North": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Harpy's Haunt South",
+      "Krolton's Cave"
+    ]
+  },
+  "Royal Gate": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 7200,
+      "crops": 0
+    },
+    "links": [
+      "Lighthouse Lookout",
+      "Fort Torann"
+    ]
+  },
+  "Canyon High Path": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Illuminant Path",
+      "Path to the Dojo",
+      "Wanderer's Way"
+    ]
+  },
+  "Wellspring of Eternity": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Fort Torann",
+      "The Frog Bog"
+    ]
+  },
+  "Fort Hegea": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Alder Understory",
+      "Aldwell"
+    ]
+  },
+  "Path to Light": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Azure Frontier",
+      "Otherworldly Monolith"
+    ]
+  },
+  "Path to the Grootslangs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forgotten Burrows",
+      "Olux",
+      "Naga Lake"
+    ]
+  },
+  "Thanos Exit": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Illuminant Path"
+    ]
+  },
+  "Burning Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Evergreen Outbreak",
+      "Burning Airship"
+    ]
+  },
+  "Meteor Crater": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sunspark Orc Camp",
+      "Sablestone Orc Camp",
+      "Iron Road"
+    ]
+  },
+  "Path to Ozoth's Spire": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Path to Thanos",
+      "Molten Passage",
+      "Inhospitable Mountain",
+      "Secluded Ponds"
+    ]
+  },
+  "Tree Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Volcanic Isles",
+      "Lost Atoll",
+      "Light Peninsula",
+      "Maro Peaks"
+    ]
+  },
+  "Molten Passage": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Ozoth's Spire",
+      "Canyon Walkway"
+    ]
+  },
+  "Twisted Ridge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Penitentiary",
+      "Entrance to Kander",
+      "Lexdale Penitentiary"
+    ]
+  },
+  "Jitak's Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mushroom Hill",
+      "Gylia Lakehouse",
+      "Gert Camp"
+    ]
+  },
+  "Bob's Tomb": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Wolves' Den",
+      "Florist's Hut",
+      "Nesaak"
+    ]
+  },
+  "Bucie Waterfall": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Harnort Compound",
+      "Shineridge Orc Camp",
+      "Entrance to Bucie",
+      "Llevigar Farm"
+    ]
+  },
+  "Void Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gateway to Nothing"
+    ]
+  },
+  "Tempo Town": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Blooming Boulders",
+      "Elkurn",
+      "Time Valley",
+      "Road to Elkurn"
+    ]
+  },
+  "Rymek": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sunrise Plateau",
+      "Ruined Prospect"
+    ]
+  },
+  "Temple of Legends": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Troms Lake",
+      "Troms"
+    ]
+  },
+  "Swamp Mountain Arch": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Floral Peaks",
+      "Lizardman Camp",
+      "Shady Shack",
+      "Sunspark Orc Camp"
+    ]
+  },
+  "Mummy's Tomb": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 7200
+    },
+    "links": [
+      "Cascading Oasis"
+    ]
+  },
+  "Desolate Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Nesaak Transition",
+      "Corrupted River",
+      "Plains Lake"
+    ]
+  },
+  "Bloody Beach": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Volcanic Excavation",
+      "Avos Temple",
+      "Corkus Outskirts",
+      "Pirate Town"
+    ]
+  },
+  "Dragonling Nests": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 7200,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Snail Island",
+      "Astraulus' Tower"
+    ]
+  },
+  "Legendary Island": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Southern Outpost",
+      "Zhight Island"
+    ]
+  },
+  "Corkus City": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Corkus Castle",
+      "Corkus City Crossroads",
+      "Picnic Pond",
+      "Retrofitted Manufactory",
+      "Corkus Forest"
+    ]
+  },
+  "Llevigar Stables": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Llevigar Gate",
+      "Cliffhearth Orc Camp",
+      "Trunkstump Goblin Camp",
+      "Orc Road"
+    ]
+  },
+  "Contested District": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Verdant Grove",
+      "University Campus",
+      "Gates to Aelumia"
+    ]
+  },
+  "Mining Base Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Abandoned Mines Entrance",
+      "Abandoned Mines",
+      "Abandoned Pass",
+      "Mine Base Plains"
+    ]
+  },
+  "Frosty Outpost": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Lake Rieke",
+      "Feuding Houses"
+    ]
+  },
+  "Durum Oat Islet": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mage Island",
+      "Durum Isles Barn",
+      "Cathedral Harbour"
+    ]
+  },
+  "Sunrise Plateau": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Rymek",
+      "Eagle Tribe",
+      "Sunset Plateau"
+    ]
+  },
+  "Wanderer's Way": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Canyon High Path"
+    ]
+  },
+  "Evergreen Outbreak": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Pine Pillar Forest",
+      "Burning Farm"
+    ]
+  },
+  "Gylia Fisherman Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Celestial Impact",
+      "Cosmic Fissures",
+      "Path to Thanos"
+    ]
+  },
+  "Snail Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Temple Island",
+      "Dragonling Nests"
+    ]
+  },
+  "Cascading Oasis": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gloopy Cave",
+      "Mummy's Tomb",
+      "Dusty Pit"
+    ]
+  },
+  "Enchanted River": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Gelibord",
+      "Twisted Housing",
+      "Faltach Manor"
+    ]
+  },
+  "The Gate": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 7200
+    },
+    "links": [
+      "Bizarre Passage"
+    ]
+  },
+  "Entrance to Nivla Woods": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Emerald Trail",
+      "Nomads' Refuge",
+      "Road to Time Valley",
+      "Nivla Woods"
+    ]
+  },
+  "Forgotten Town": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Grey Ruins",
+      "Forest of Eyes"
+    ]
+  },
+  "Bantisu Air Temple": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bantisu Approach"
+    ]
+  },
+  "Nivla Woods": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Nivla Woods",
+      "Road to Time Valley",
+      "Alekin",
+      "Blooming Boulders"
+    ]
+  },
+  "Corrupted Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Akias Ruins",
+      "Corrupted Orchard",
+      "Razed Inn",
+      "Ancient Nemract"
+    ]
+  },
+  "Lake Gitephe": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Royal Dam",
+      "Citadel's Shadow",
+      "Hyloch"
+    ]
+  },
+  "Ragni": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ragni Main Entrance",
+      "Ragni North Entrance",
+      "Ragni South Entrance"
+    ]
+  },
+  "Accursed Dunes": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Eagle Tribe",
+      "Barren Sands",
+      "Ruined Villa"
+    ]
+  },
+  "Cinfras": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Cinfras",
+      "Guild Hall",
+      "Cinfras Outskirts",
+      "Aldorei River"
+    ]
+  },
+  "Forgotten Burrows": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Maiden Tower",
+      "Infested Sinkhole",
+      "Shady Shack",
+      "Naga Lake",
+      "Path to the Grootslangs"
+    ]
+  },
+  "Goblin Plains West": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sablestone Orc Camp",
+      "Iron Road",
+      "Llevigar Farm",
+      "Goblin Plains East"
+    ]
+  },
+  "Farmers Settlement": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Emerald Trail",
+      "Maltic",
+      "Nomads' Refuge",
+      "Ragni Countryside South",
+      "Ancient Waterworks"
+    ]
+  },
+  "Thesead": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Thesead",
+      "Thesead Suburbs"
+    ]
+  },
+  "Cosmic Fissures": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Gylia Fisherman Camp",
+      "Gylia Research Cabin",
+      "Gylia Watchtower",
+      "Thanos"
+    ]
+  },
+  "Corkus Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City",
+      "Corkus City Crossroads",
+      "Industrial Clearing",
+      "Picnic Pond"
+    ]
+  },
+  "Troll's Challenge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Colourful Mountaintop",
+      "Thanos Underpass",
+      "Upper Thanos"
+    ]
+  },
+  "Zhight Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Bear Zoo",
+      "Pirate Town",
+      "Legendary Island"
+    ]
+  },
+  "Path to the Forgery": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Efilim Crossroads",
+      "Minotaur Barbecue",
+      "Unicorn Trail",
+      "The Forgery"
+    ]
+  },
+  "The Shiar": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Aldorei Valley Outskirts",
+      "Luxuriant Pond",
+      "Mycelial Expanse",
+      "Light Peninsula"
+    ]
+  },
+  "Fallen Village": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Weird Clearing",
+      "Gylia Research Cabin",
+      "Cinfras Outskirts"
+    ]
+  },
+  "Infested Sinkhole": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Witching Road",
+      "Forgotten Burrows",
+      "Secluded Workshop",
+      "Naga Lake"
+    ]
+  },
+  "Hobgoblin's Hoard": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Elefolk Stomping Grounds",
+      "Krolton's Cave"
+    ]
+  },
+  "Lusuco": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Icy Descent"
+    ]
+  },
+  "Jungle Entrance": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Great Bridge",
+      "Monte's Village",
+      "Herb Cave"
+    ]
+  },
+  "Dragonbone Graveyard": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Freezing Heights",
+      "Pyroclastic Flow"
+    ]
+  },
+  "Time Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Little Wood",
+      "Abandoned Farm",
+      "Tempo Town",
+      "Sanctuary Bridge"
+    ]
+  },
+  "Overrun Docks": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Avos Territory"
+    ]
+  },
+  "Corkus Outskirts": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Retrofitted Manufactory",
+      "Founder's Statue",
+      "Bloody Beach"
+    ]
+  },
+  "Freezing Heights": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Dogun Ritual Site",
+      "Pyroclastic Flow",
+      "Dragonbone Graveyard"
+    ]
+  },
+  "Final Step": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gateway to Nothing",
+      "Bizarre Passage"
+    ]
+  },
+  "Frosty Spikes": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Elkurn",
+      "Florist's Hut",
+      "Frozen Homestead",
+      "Abandoned Lumberyard",
+      "Sanctuary Bridge"
+    ]
+  },
+  "Almuj Slums": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Ruined Villa",
+      "Ancient Excavation",
+      "Almuj",
+      "Owl Tribe"
+    ]
+  },
+  "Durum Isles Barn": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Durum Barley Islet",
+      "Durum Oat Islet",
+      "Durum Malt Islet",
+      "Selchar"
+    ]
+  },
+  "Chasm Chokepoint": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Myconid Descent",
+      "Chasm Overlook",
+      "Entrance to Cinfras"
+    ]
+  },
+  "Ogre Den": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Collapsed Emerald Mine",
+      "Floral Peaks",
+      "Witching Road"
+    ]
+  },
+  "Lifeless Forest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Disturbed Crypt",
+      "Derelict Mansion",
+      "Jofash Docks"
+    ]
+  },
+  "Black Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Lava Springs",
+      "Ternaves",
+      "Abandoned Mines Entrance",
+      "Essren's Hut"
+    ]
+  },
+  "Colourful Mountaintop": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Kitrios Barracks",
+      "Troll's Challenge"
+    ]
+  },
+  "Abandoned Lumberyard": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Frozen Homestead",
+      "Frosty Spikes"
+    ]
+  },
+  "Blackstring Den": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Rocky Shore",
+      "Mount Wynn Inn",
+      "Nested Cliffside"
+    ]
+  },
+  "Witching Road": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Ogre Den",
+      "Maiden Tower",
+      "Infested Sinkhole"
+    ]
+  },
+  "Detlas Suburbs": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Corrupted Orchard",
+      "Detlas",
+      "Corrupted Warfront",
+      "Scorched Trail"
+    ]
+  },
+  "Fort Torann": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Royal Gate",
+      "Wellspring of Eternity",
+      "Xima Valley",
+      "Forts in Fall"
+    ]
+  },
+  "Weird Clearing": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fungal Grove",
+      "Mushroom Hill",
+      "Fallen Village",
+      "Gylia Lakehouse"
+    ]
+  },
+  "Luminous Plateau": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Field of Life"
+    ]
+  },
+  "Mantis Nest": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Aldorei Valley Outskirts",
+      "Myconid Descent",
+      "Mycelial Expanse",
+      "Chasm Overlook",
+      "Aldorei Springs"
+    ]
+  },
+  "Entrance to Kander": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Gelibord",
+      "Path to the Penitentiary",
+      "Faltach Manor",
+      "Path to Talor",
+      "Twisted Ridge"
+    ]
+  },
+  "Kandon Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Kandon Ridge"
+    ]
+  },
+  "Path to Ahmsord": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sky Castle",
+      "Aerial Descent",
+      "Ahmsord"
+    ]
+  },
+  "Mage Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Half Moon Island",
+      "Durum Barley Islet",
+      "Durum Oat Islet",
+      "Santa's Hideout",
+      "Nodguj Nation"
+    ]
+  },
+  "Temple Island": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ahmsord",
+      "Snail Island",
+      "Swamp Island",
+      "Kandon Ridge",
+      "Central Islands"
+    ]
+  },
+  "Aldorei Cliffside Waterfalls": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Big Mushroom Cave",
+      "Aldorei Valley",
+      "Felroc Fields"
+    ]
+  },
+  "Lizardman Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bloody Trail",
+      "Olux Lumberyard",
+      "Entrance to Olux",
+      "Olux",
+      "Fading Forest"
+    ]
+  },
+  "Nodguj Nation": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Skien's Island",
+      "Dujgon Nation",
+      "Santa's Hideout",
+      "Icy Island",
+      "Mage Island",
+      "Durum Barley Islet"
+    ]
+  },
+  "Heavenly Ingress": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Field of Life",
+      "Path to Light's Secret"
+    ]
+  },
+  "Feuding Houses": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Frosty Outpost",
+      "Fort Tericen"
+    ]
+  },
+  "Festival Grounds": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "The Frog Bog",
+      "Espren"
+    ]
+  },
+  "Corkus City Crossroads": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Fallen Factory",
+      "Road to Mine",
+      "Industrial Clearing",
+      "Corkus Forest",
+      "Corkus City"
+    ]
+  },
+  "Durum Barley Islet": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mage Island",
+      "Durum Isles Barn",
+      "Nodguj Nation",
+      "Selchar"
+    ]
+  },
+  "Ruined Villa": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Gloopy Cave",
+      "Ancient Excavation",
+      "Almuj",
+      "Almuj Slums",
+      "Accursed Dunes"
+    ]
+  },
+  "Fungal Grove": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Talor Cemetery",
+      "Old Crossroads",
+      "Decayed Basin",
+      "Weird Clearing",
+      "Cinfras Outskirts"
+    ]
+  },
+  "Fort Tericen": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Alder Understory",
+      "Citadel's Shadow",
+      "Hyloch",
+      "Lake Rieke",
+      "Feuding Houses"
+    ]
+  },
+  "Orc Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Llevigar Stables",
+      "Orc Lake",
+      "Loamsprout Orc Camp",
+      "Llevigar Gate"
+    ]
+  },
+  "Angel Refuge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Molten Reach",
+      "Ahmsord Outskirts"
+    ]
+  },
+  "Gateway to Nothing": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Toxic Drip",
+      "Void Valley",
+      "Final Step"
+    ]
+  },
+  "Talor Cemetery": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Talor",
+      "Dark Forest Village",
+      "Old Crossroads",
+      "Fungal Grove",
+      "Cinfras Outskirts"
+    ]
+  },
+  "Elefolk Stomping Grounds": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fleris Cranny",
+      "Hobgoblin's Hoard",
+      "Protector's Pathway",
+      "Featherfall Cliffs"
+    ]
+  },
+  "Webbed Fracture": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Nomads' Refuge",
+      "Arachnid Woods",
+      "Nested Cliffside"
+    ]
+  },
+  "Industrial Clearing": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Corkus City Crossroads",
+      "Fallen Factory",
+      "Corkus Forest",
+      "Ruined Houses"
+    ]
+  },
+  "Selchar": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Durum Isles Barn",
+      "Durum Barley Islet",
+      "Durum Malt Islet",
+      "Skien's Island",
+      "Rooster Island"
+    ]
+  },
+  "Nesaak": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Wolves' Den",
+      "Frigid Crossroads",
+      "Florist's Hut",
+      "Frozen Homestead",
+      "Bob's Tomb"
+    ]
+  },
+  "Abandoned Pass": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Abandoned Mines Entrance",
+      "Mining Base Camp"
+    ]
+  },
+  "Katoa Ranch": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 7200
+    },
+    "links": [
+      "Ragni North Entrance",
+      "Riverbank Knoll"
+    ]
+  },
+  "Sky Castle": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Ahmsord"
+    ]
+  },
+  "Eagle Tribe": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Sunrise Plateau",
+      "Owl Tribe",
+      "Accursed Dunes"
+    ]
+  },
+  "Entrance to Thesead": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Displaced Housing",
+      "Workshop Glade",
+      "Thesead Underpass",
+      "Thesead"
+    ]
+  },
+  "Entrance to Cinfras": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cinfras",
+      "Chasm Chokepoint",
+      "Path to Cinfras",
+      "Mesquis Tower"
+    ]
+  },
+  "Road to Time Valley": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Nivla Woods",
+      "Nivla Woods",
+      "Blooming Boulders"
+    ]
+  },
+  "Harnort Compound": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Karoc Quarry",
+      "Bucie Waterfall"
+    ]
+  },
+  "Aerial Descent": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Ahmsord",
+      "Kandon Ridge",
+      "Ahmsord"
+    ]
+  },
+  "Plains Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Roots of Corruption",
+      "Desolate Valley",
+      "Mine Base Plains",
+      "Corrupted Warfront"
+    ]
+  },
+  "Twain Lake": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Twain Mansion",
+      "Frigid Crossroads"
+    ]
+  },
+  "Azure Frontier": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Field of Life",
+      "Path to Light",
+      "Otherworldly Monolith",
+      "Nexus of Light"
+    ]
+  },
+  "Wizard Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bandit's Toll",
+      "Krolton's Cave"
+    ]
+  },
+  "Corrupted Orchard": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Akias Ruins",
+      "Detlas Suburbs",
+      "Corrupted Warfront",
+      "Scorched Trail",
+      "Corrupted Tower"
+    ]
+  },
+  "Felroc Fields": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Cinfras's Small Farm",
+      "Aldorei River",
+      "Aldorei Cliffside Waterfalls"
+    ]
+  },
+  "Entrance to Olux": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bloody Trail",
+      "Lizardman Lake",
+      "Lizardman Camp",
+      "Shady Shack",
+      "Olux"
+    ]
+  },
+  "Ragni Main Entrance": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Emerald Trail",
+      "Ragni Countryside South",
+      "Ragni"
+    ]
+  },
+  "Entrance to Gavel": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Llevigar",
+      "Volcanic Excavation"
+    ]
+  },
+  "Loamsprout Orc Camp": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Orc Road",
+      "Sablestone Orc Camp",
+      "Llevigar Farm",
+      "Shineridge Orc Camp"
+    ]
+  },
+  "Luxuriant Pond": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to Light's Secret",
+      "Dodegar's Forge",
+      "The Shiar"
+    ]
+  },
+  "Gylia Lakehouse": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Weird Clearing",
+      "Gylia Research Cabin",
+      "Gylia Watchtower",
+      "Jitak's Farm"
+    ]
+  },
+  "Path to Talor": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Entrance to Kander",
+      "Dark Forest Village",
+      "Talor Cemetery",
+      "Old Crossroads",
+      "Kander Mines",
+      "Viscera Pits"
+    ]
+  },
+  "Tower of Ascension": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Icy Descent"
+    ]
+  },
+  "Worm Tunnel": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Broken Road",
+      "Grey Ruins"
+    ]
+  },
+  "Viscera Pits": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Path to the Penitentiary",
+      "Path to Talor",
+      "Lexdale"
+    ]
+  },
+  "Old Coal Mine": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Kandon Ridge"
+    ]
+  },
+  "University Campus": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Timasca",
+      "Contested District",
+      "Royal Barracks"
+    ]
+  },
+  "Wood Sprite Hideaway": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Guardian of the Forest",
+      "Path to Light's Secret",
+      "Dodegar's Forge",
+      "Road to Light Forest"
+    ]
+  },
+  "Espren": {
+    "baseGeneration": {
+      "emeralds": 18000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Forts in Fall",
+      "Festival Grounds",
+      "Agricultural Sector",
+      "The Lumbermill"
+    ]
+  },
+  "Entrance to Molten Heights": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Thesead Suburbs",
+      "Eltom",
+      "Rodoroc"
+    ]
+  },
+  "Scorched Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Corrupted Orchard",
+      "Detlas Suburbs",
+      "Detlas",
+      "Ancient Nemract",
+      "Cathedral Harbour"
+    ]
+  },
+  "Old Crossroads": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Path to Talor",
+      "Talor Cemetery",
+      "Lexdale",
+      "Fungal Grove"
+    ]
+  },
+  "Pyroclastic Flow": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Freezing Heights",
+      "Lava Lakes",
+      "Dragonbone Graveyard"
+    ]
+  },
+  "Abandoned Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Pigmen Ravines",
+      "Time Valley"
+    ]
+  },
+  "Karoc Quarry": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Shineridge Orc Camp",
+      "Harnort Compound",
+      "Llevigar"
+    ]
+  },
+  "Silent Road": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mine Base Plains",
+      "Broken Road"
+    ]
+  },
+  "Bear Zoo": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Rooster Island",
+      "Zhight Island"
+    ]
+  },
+  "Ranol's Farm": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Cherry Blossom Grove",
+      "Thesead Suburbs",
+      "Eltom"
+    ]
+  },
+  "Corrupted River": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Elkurn",
+      "Roots of Corruption",
+      "Nesaak Transition",
+      "Desolate Valley"
+    ]
+  },
+  "Astraulus' Tower": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Dragonling Nests",
+      "Swamp Island"
+    ]
+  },
+  "The Frog Bog": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Wellspring of Eternity",
+      "Forts in Fall",
+      "Festival Grounds"
+    ]
+  },
+  "Raiders' Stronghold": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sky Island Ascent",
+      "Raiders' Airbase"
+    ]
+  },
+  "Little Wood": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Sulphuric Hollow",
+      "Time Valley"
+    ]
+  },
+  "Sky Island Ascent": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Central Islands",
+      "Sky Falls",
+      "Raiders' Stronghold",
+      "Jofash Tunnel",
+      "Ahmsord"
+    ]
+  },
+  "Collapsed Bridge": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 3600,
+      "crops": 0
+    },
+    "links": [
+      "Unicorn Trail",
+      "Mycelial Expanse",
+      "Chasm Overlook"
+    ]
+  },
+  "Durum Malt Islet": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Selchar",
+      "Durum Isles Barn",
+      "Rooster Island",
+      "Cathedral Harbour"
+    ]
+  },
+  "Bandit Cave": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Burning Airship"
+    ]
+  },
+  "Panda Path": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Panda Kingdom",
+      "Timeworn Arch"
+    ]
+  },
+  "Light Peninsula": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "The Shiar",
+      "Volcanic Isles",
+      "Volcanic Excavation",
+      "Tree Island"
+    ]
+  },
+  "Bandit's Toll": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 3600,
+      "wood": 0,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Canyon Walkway",
+      "Wizard Tower",
+      "Workshop Glade",
+      "Illuminant Path"
+    ]
+  },
+  "Florist's Hut": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bob's Tomb",
+      "Frosty Spikes",
+      "Frozen Homestead",
+      "Nesaak",
+      "Nesaak Transition"
+    ]
+  },
+  "Santa's Hideout": {
+    "baseGeneration": {
+      "emeralds": 1800,
+      "ore": 900,
+      "wood": 900,
+      "fish": 900,
+      "crops": 900
+    },
+    "links": [
+      "Mage Island",
+      "Icy Island",
+      "Nodguj Nation"
+    ]
+  },
+  "Coastal Trail": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Ragni Countryside North",
+      "Maltic Coast",
+      "Maltic"
+    ]
+  },
+  "Lion Lair": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Bremminglar"
+    ]
+  },
+  "Ancient Nemract": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 0,
+      "fish": 0,
+      "crops": 3600
+    },
+    "links": [
+      "Mount Wynn Inn",
+      "Scorched Trail",
+      "Corrupted Tower",
+      "Nemract Cathedral",
+      "Cathedral Harbour"
+    ]
+  },
+  "Aldorei River": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Felroc Fields",
+      "Cinfras"
+    ]
+  },
+  "Alder Understory": {
+    "baseGeneration": {
+      "emeralds": 9000,
+      "ore": 0,
+      "wood": 3600,
+      "fish": 0,
+      "crops": 0
+    },
+    "links": [
+      "Fort Tericen",
+      "Aldwell",
+      "Highlands Gate",
+      "Fort Hegea"
+    ]
+  }
+}
