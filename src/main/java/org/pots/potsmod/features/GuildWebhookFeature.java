@@ -624,6 +624,9 @@ public class GuildWebhookFeature extends Feature {
                 os.write(bytes);
             }
             int code = conn.getResponseCode();
+            java.io.InputStream is = code >= 200 && code < 300 ? conn.getInputStream() : conn.getErrorStream();
+            String respStr = is != null ? new String(is.readAllBytes(), StandardCharsets.UTF_8) : "";
+            PotsmodClient.LOGGER.info("[WebhookDispatch] POST -> {} | Response {}: {}", endpoint, code, respStr);
             return code >= 200 && code < 300;
         } catch (Exception e) {
             return false;
