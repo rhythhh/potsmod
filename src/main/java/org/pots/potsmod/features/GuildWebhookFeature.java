@@ -102,8 +102,6 @@ public class GuildWebhookFeature extends Feature {
 
     private final Map<String, Long> recentDebounce = new ConcurrentHashMap<>();
 
-    private final org.pots.potsmod.chat.ChatRelay chatRelay = new org.pots.potsmod.chat.ChatRelay();
-
     @Override
     public void init() {
         REventBus.subscribe(this);
@@ -120,38 +118,48 @@ public class GuildWebhookFeature extends Feature {
     public void handleIncomingComponent(Component comp) {
         if (comp == null) return;
 
-        // 1. EDN: Observe player names and hovers
-        org.pots.potsmod.chat.PlayerNameResolver.observeMessage(comp);
+        PlayerResolver.learnFromComponent(comp);
 
-        // 2. EDN: Guild Bank deposits / withdrawals
-        Optional<org.pots.potsmod.chat.BankEvent> bankOpt = org.pots.potsmod.chat.BankEventParser.parse(comp);
-        if (bankOpt.isPresent()) {
-            dispatchBankEvent(bankOpt.get(), comp);
-            return;
-        }
-
-        // 3. EDN: Economy announcements
-        if (org.pots.potsmod.chat.EconomyMessageFilter.isEconomyMessage(comp)) {
-            org.pots.potsmod.chat.EconomyMessageFilter.parseForRelay(comp).ifPresent(text -> dispatchEconomyRelay(text, comp));
-            return;
-        }
-
-        // 4. EDN: Guild Chat
         if (GuildChatParser.looksLikeGuildChat(comp)) {
             Optional<CapturedMessage> parsed = GuildChatParser.parse(comp);
             if (parsed.isPresent()) {
                 CapturedMessage msg = parsed.get();
-                if (chatRelay.shouldSend(msg)) {
+                if (shouldSendRelay(msg)) {
                     dispatchGuildChat(msg);
                     return;
                 }
             }
         }
+
+        String raw = comp.getString();
+        if (raw == null || raw.isBlank()) return;
+
+        String normalized = normalize(raw);
+        if (normalized.isEmpty()) return;
+
+        if (checkGuildBankMessage(normalized, comp)) return;
+        checkEconomyMessage(normalized, comp);
     }
 
     @Subscribe
     public void onChatMessage(ChatMessageReceivedEvent event) {
-        // Handled directly via onIncomingSystemChat from ClientPacketListenerMixin
+        if (event == null || event.message() == null) {
+            return;
+        }
+        handleIncomingComponent(event.message());
+    }
+
+    private synchronized boolean shouldSendRelay(CapturedMessage msg) {
+        long now = System.currentTimeMillis();
+        recentDebounce.entrySet().removeIf(e -> now - e.getValue() > 4000L);
+        String key = msg.username().toLowerCase(Locale.ROOT) + ":" + normalizeRelay(msg.message());
+        Long prev = recentDebounce.put(key, now);
+        return prev == null || (now - prev >= 1500L);
+    }
+
+    private static String normalizeRelay(String s) {
+        if (s == null) return "";
+        return s.strip().replaceAll("\\s+", "").toLowerCase(Locale.ROOT);
     }
 
     private static void populateSecurityMetadata(JsonObject backendEvent, String realPlayer, String rawSender) {
@@ -170,7 +178,7 @@ public class GuildWebhookFeature extends Feature {
             } else if (rawSender != null && myIgn.equalsIgnoreCase(rawSender)) {
                 isOwn = true;
             } else if (rawSender != null) {
-                String resolvedReal = org.pots.potsmod.chat.PlayerNameResolver.resolve(null, rawSender);
+                String resolvedReal = org.pots.potsmod.utils.PlayerResolver.resolveRealName(null, rawSender);
                 if (myIgn.equalsIgnoreCase(resolvedReal)) {
                     isOwn = true;
                 }
@@ -182,6 +190,11 @@ public class GuildWebhookFeature extends Feature {
     }
 
     private void dispatchGuildChat(CapturedMessage msg) {
+        // Enforce guild exclusivity: only forward if verified in tracked guild by backend
+        if (!BackendManager.isGuildMember()) {
+            return;
+        }
+
         String realPlayer = msg.username();
         String rawSender = msg.nickname();
         String message = msg.message();
@@ -201,104 +214,6 @@ public class GuildWebhookFeature extends Feature {
         backendEvent.addProperty("text", realPlayer + ": " + message);
 
         dispatchWebhook(backendEvent, null, directPayload);
-    }
-
-    private void dispatchBankEvent(org.pots.potsmod.chat.BankEvent bank, Component comp) {
-        String action = bank.action(); // "deposit" or "withdrawal"
-        String realPlayer = bank.player();
-        int quantity = bank.quantity() != null ? bank.quantity() : 1;
-        String itemName = bank.item();
-        String charges = bank.charges();
-        String accessTier = bank.accessTier();
-
-        boolean isDeposit = "deposit".equalsIgnoreCase(action);
-        String title = isDeposit ? "📥 Guild Bank Deposit" : "📤 Guild Bank Withdrawal";
-        int color = isDeposit ? 0x2ECC71 : 0xE74C3C;
-
-        String avatarTarget = (realPlayer != null && realPlayer.matches("^[a-zA-Z0-9_]{3,16}$")) ? realPlayer : "Steve";
-        JsonObject directPayload = new JsonObject();
-        directPayload.addProperty("username", realPlayer);
-        directPayload.addProperty("avatar_url", "https://visage.surgeplay.com/face/128/" + avatarTarget);
-
-        JsonArray embeds = new JsonArray();
-        JsonObject embed = new JsonObject();
-        embed.addProperty("title", title);
-        embed.addProperty("description", "**" + realPlayer + "** " + (isDeposit ? "deposited" : "withdrew") + " **" + quantity + "x " + itemName + "** "
-                + (charges != null ? "`[" + charges + "]` " : "")
-                + (isDeposit ? "to" : "from") + " the Guild Bank `(" + accessTier + ")`");
-        embed.addProperty("color", color);
-        embed.addProperty("timestamp", Instant.now().toString());
-
-        JsonObject author = new JsonObject();
-        author.addProperty("name", realPlayer);
-        author.addProperty("icon_url", "https://visage.surgeplay.com/bust/128/" + avatarTarget);
-        embed.add("author", author);
-
-        JsonArray fields = new JsonArray();
-        fields.add(createField("Player", realPlayer, true));
-        fields.add(createField("Action", isDeposit ? "Deposit" : "Withdrawal", true));
-        fields.add(createField("Item", quantity + "x " + itemName + (charges != null ? " [" + charges + "]" : ""), true));
-        fields.add(createField("Access Tier", accessTier, true));
-        embed.add("fields", fields);
-
-        JsonObject footer = new JsonObject();
-        footer.addProperty("text", "Wynncraft Guild Logger");
-        footer.addProperty("icon_url", "https://visage.surgeplay.com/face/64/Steve");
-        embed.add("footer", footer);
-
-        embeds.add(embed);
-        directPayload.add("embeds", embeds);
-
-        JsonObject backendEvent = new JsonObject();
-        backendEvent.addProperty("type", isDeposit ? "bank_deposit" : "bank_withdraw");
-        populateSecurityMetadata(backendEvent, realPlayer, realPlayer);
-        backendEvent.addProperty("realPlayerName", realPlayer);
-        backendEvent.addProperty("rawPlayerName", realPlayer);
-        backendEvent.addProperty("action", isDeposit ? "deposited" : "withdrew");
-        backendEvent.addProperty("item", quantity + "x " + itemName);
-        backendEvent.addProperty("bank", accessTier);
-
-        String fallback = PotsmodConfig.getData().getGuildBankWebhookUrl();
-        dispatchWebhook(backendEvent, fallback, directPayload);
-    }
-
-    private void dispatchEconomyRelay(String text, Component comp) {
-        String actor = "Guild Member";
-        int firstSpace = text.indexOf(' ');
-        if (firstSpace > 0) {
-            actor = text.substring(0, firstSpace).trim();
-        }
-        String realActor = org.pots.potsmod.chat.PlayerNameResolver.resolve(comp, actor);
-
-        String avatarTarget = (realActor != null && realActor.matches("^[a-zA-Z0-9_]{3,16}$")) ? realActor : "Steve";
-        JsonObject directPayload = new JsonObject();
-        directPayload.addProperty("username", "Economy Monitor");
-        directPayload.addProperty("avatar_url", "https://visage.surgeplay.com/face/128/" + avatarTarget);
-
-        JsonArray embeds = new JsonArray();
-        JsonObject embed = new JsonObject();
-        embed.addProperty("title", "📊 Territory Economy Update");
-        embed.addProperty("description", text);
-        embed.addProperty("color", 0xF1C40F);
-        embed.addProperty("timestamp", Instant.now().toString());
-
-        JsonObject footer = new JsonObject();
-        footer.addProperty("text", "Wynncraft Economy Logger");
-        footer.addProperty("icon_url", "https://visage.surgeplay.com/face/64/Steve");
-        embed.add("footer", footer);
-
-        embeds.add(embed);
-        directPayload.add("embeds", embeds);
-
-        JsonObject backendEvent = new JsonObject();
-        backendEvent.addProperty("type", "eco");
-        populateSecurityMetadata(backendEvent, realActor, actor);
-        backendEvent.addProperty("realPlayerName", realActor);
-        backendEvent.addProperty("rawPlayerName", actor);
-        backendEvent.addProperty("text", text);
-
-        String fallback = PotsmodConfig.getData().getEconomyWebhookUrl();
-        dispatchWebhook(backendEvent, fallback, directPayload);
     }
 
     public static String normalize(String s) {
