@@ -199,9 +199,10 @@ public class GuildWebhookFeature extends Feature {
         String rawSender = msg.nickname();
         String message = msg.message();
 
+        String avatarTarget = (realPlayer != null && realPlayer.matches("^[a-zA-Z0-9_]{3,16}$")) ? realPlayer : "Steve";
         JsonObject directPayload = new JsonObject();
         directPayload.addProperty("username", realPlayer);
-        directPayload.addProperty("avatar_url", "https://visage.surgeplay.com/face/128/" + realPlayer);
+        directPayload.addProperty("avatar_url", "https://visage.surgeplay.com/face/128/" + avatarTarget);
         directPayload.addProperty("content", message);
 
         JsonObject backendEvent = new JsonObject();

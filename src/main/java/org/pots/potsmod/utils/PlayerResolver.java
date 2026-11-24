@@ -69,6 +69,10 @@ public final class PlayerResolver {
                     if (IGN_PATTERN.matcher(real).matches()) {
                         NICK_TO_REAL.put(cleanKey(trimmedText), real);
                         NICK_TO_REAL.put(cleanKey(real), real);
+                        String rest = hoverContent.substring(m2.end()).trim();
+                        if (!rest.isEmpty()) {
+                            NICK_TO_REAL.put(cleanKey(rest), real);
+                        }
                     }
                 }
             }
@@ -114,8 +118,11 @@ public final class PlayerResolver {
             learnFromComponent(component);
         }
 
-        // 1. Direct cache lookup
-        String cached = NICK_TO_REAL.get(cleanKey(clean));
+        // 1. Direct cache lookup (check rawName first, then cleaned IGN)
+        String cached = NICK_TO_REAL.get(cleanKey(rawName));
+        if (cached == null || cached.isBlank()) {
+            cached = NICK_TO_REAL.get(cleanKey(clean));
+        }
         if (cached != null && !cached.isBlank()) {
             return cached;
         }

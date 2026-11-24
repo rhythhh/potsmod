@@ -15,9 +15,14 @@ import java.util.regex.Pattern;
 
 public final class GuildChatParser {
     public static final int GUILD_CHAT_COLOR = 0x55FFFF;
+    public static final int GUILD_CHAT_COLOR_DARK = 0x00AAAA;
     private static final Pattern CHAT_PATTERN = Pattern.compile(
             "^(?:<\\d+>\\s*)?([a-zA-Z0-9_]{3,16}(?:/[a-zA-Z0-9_]{3,16})?|[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]|[a-zA-Z0-9_]{1,16})\\s*:\\s*(.*)$",
             Pattern.DOTALL
+    );
+    private static final Pattern HOVER_NICK_PATTERN = Pattern.compile(
+            "([a-zA-Z0-9_]{3,16})'s nickname is",
+            Pattern.CASE_INSENSITIVE
     );
     private static final Pattern HOVER_REAL_NAME_PATTERN = Pattern.compile(
             "(?:'(?:s)? real (?:user)?name is\\s+|Real Username:\\s*)([a-zA-Z0-9_]{3,16})",
@@ -67,8 +72,8 @@ public final class GuildChatParser {
             real = org.pots.potsmod.utils.PlayerResolver.resolveRealName(message, displayed);
         }
         String username = resolveAvatarUsername(displayed, real);
-        if (username == null) {
-            return Optional.empty();
+        if (username == null || username.isBlank()) {
+            username = displayed;
         }
         String nickname = username.equalsIgnoreCase(displayed) ? username : displayed;
         return Optional.of(new CapturedMessage(username, nickname, content));
@@ -119,6 +124,10 @@ public final class GuildChatParser {
             return null;
         }
         String text = hover.replace('\u2019', '\'').replace('\u2018', '\'');
+        Matcher nickMatcher = HOVER_NICK_PATTERN.matcher(text);
+        if (nickMatcher.find()) {
+            return nickMatcher.group(1);
+        }
         Matcher matcher = HOVER_REAL_NAME_PATTERN.matcher(text);
         return matcher.find() ? matcher.group(1) : null;
     }
@@ -131,7 +140,10 @@ public final class GuildChatParser {
             return displayed;
         }
         String normalized = displayed == null ? "" : displayed.replaceAll("[^a-zA-Z0-9_]", "");
-        return IGN.matcher(normalized).matches() ? normalized : null;
+        if (IGN.matcher(normalized).matches()) {
+            return normalized;
+        }
+        return displayed;
     }
 
     private static List<Segment> collect(Component message) {
@@ -154,20 +166,24 @@ public final class GuildChatParser {
         return null;
     }
 
+    public static boolean isGuildChatColor(int color) {
+        return color == GUILD_CHAT_COLOR || color == GUILD_CHAT_COLOR_DARK;
+    }
+
     public static boolean hasLeadingGuildChatColor(Component message) {
         if (message == null) {
             return false;
         }
         TextColor rootColor = message.getStyle().getColor();
-        if (rootColor != null) {
-            return rootColor.getValue() == GUILD_CHAT_COLOR;
+        if (rootColor != null && isGuildChatColor(rootColor.getValue())) {
+            return true;
         }
         Optional<Boolean> leading = message.visit((style, text) -> {
             if (text == null || text.isBlank()) {
                 return Optional.empty();
             }
             TextColor color = style.getColor();
-            return Optional.of(color != null && color.getValue() == GUILD_CHAT_COLOR);
+            return Optional.of(color != null && isGuildChatColor(color.getValue()));
         }, Style.EMPTY);
         return leading.orElse(false);
     }
