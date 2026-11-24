@@ -511,8 +511,8 @@ public final class BackendManager {
                                 downloadUrl = json.get("downloadUrl").getAsString();
                             }
 
-                            // Auto-updater disabled in Potsmod to prevent overwriting with remote RMod
-                            if (false && org.pots.potsmod.config.PotsmodConfig.getData().isAutoUpdate() && latestVersion != null && downloadUrl != null) {
+                            // Auto-updater enabled for future releases
+                            if (org.pots.potsmod.config.PotsmodConfig.getData().isAutoUpdate() && latestVersion != null && downloadUrl != null) {
                                 if (isNewerVersion(latestVersion, CURRENT_VERSION)) {
                                     triggerAutoUpdate(downloadUrl, latestVersion);
                                 }
@@ -556,14 +556,14 @@ public final class BackendManager {
                         }
                     }
 
-                    // Register shutdown hook to delete old RMod jars and activate the new jar
+                    // Register shutdown hook to delete old Potsmod jars and activate the new jar
                     Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                         try {
-                            // Find and delete previous RMod jars in mods folder
+                            // Find and delete previous Potsmod / RMod jars in mods folder
                             try (var stream = Files.list(modsDir)) {
                                 stream.filter(p -> {
                                     String fn = p.getFileName().toString().toLowerCase(java.util.Locale.ROOT);
-                                    return fn.startsWith("rmod-") && fn.endsWith(".jar") && !p.equals(targetFile);
+                                    return (fn.startsWith("potsmod-") || fn.startsWith("rmod-")) && fn.endsWith(".jar") && !p.equals(targetFile);
                                 }).forEach(oldJar -> {
                                     try { Files.deleteIfExists(oldJar); } catch (Exception ignored) {}
                                 });
