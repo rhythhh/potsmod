@@ -10,9 +10,9 @@ GNU Lesser General Public License v3.0. potsmod would not exist without it.
 Most Nia Mod features are still here, along with features I added
 and the guild chat bridge. I changed Nia Mod's code and added new code.
 
-War consumables texture used in this is mod is from Avo Mod.
+War consumables textures used in this mod are from **Avo Mod** (https://modrinth.com/mod/avomod).
 
-This project is also licensed under LGPL-3.0.
+This project is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). See [LICENSE.txt](LICENSE.txt) for details.
 
 I am inexperienced and a lot of this code was written with AI help,
 so expect bugs. Issues and pull requests are welcome please contact @rhythhh or @rktz1_ on discord if you wanna report any bug, issues or complaint :D.

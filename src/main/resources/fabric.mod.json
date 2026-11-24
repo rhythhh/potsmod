@@ -5,10 +5,18 @@
   "name": "potsmod",
   "description": "Potato.",
   "authors": [
-    "pots"
+    "pots",
+    "rhythhh"
   ],
-  "contact": {},
-  "license": "All-Rights-Reserved",
+  "contributors": [
+    "Nerfuria (Nia Mod)",
+    "Avo Mod Team"
+  ],
+  "contact": {
+    "sources": "https://github.com/rhythhh/potsmod",
+    "issues": "https://github.com/rhythhh/potsmod/issues"
+  },
+  "license": "LGPL-3.0-only",
   "icon": "assets/potsmod/icon.png",
   "environment": "client",
   "entrypoints": {
