@@ -639,7 +639,7 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
                     g.pose().popMatrix();
                 } else if (!isZoomedOut75 && rw >= 14 && rh >= 12) {
                     // Regular territory ownership age timer (culled when zoomed out to keep map clean)
-                    String timerStr = profile.getReadableRelativeTimeAcquired();
+                    String timerStr = formatHeldTimer(profile);
                     if (timerStr != null && !timerStr.isEmpty()) {
                         GuildResourceValues treas = info != null ? info.getTreasury() : GuildResourceValues.VERY_LOW;
                         int timerColor = getTreasuryColorHex(treas);
@@ -819,7 +819,7 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
         lines.add(Component.literal(""));
 
         // 3. Held for (Text "Held for: " in gray, total time held color-coded following treasury color system)
-        String heldTimeStr = profile != null ? profile.getReadableRelativeTimeAcquired() : null;
+        String heldTimeStr = formatHeldTimer(profile);
         if (heldTimeStr != null && !heldTimeStr.isEmpty()) {
             GuildResourceValues treasVal = info != null ? info.getTreasury() : GuildResourceValues.VERY_LOW;
             ChatFormatting heldColor = switch (treasVal != null ? treasVal : GuildResourceValues.VERY_LOW) {
@@ -987,6 +987,30 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
         int count = amount > 3600 ? 2 : 1;
         for (int i = 0; i < count; i++) {
             list.add(icon);
+        }
+    }
+
+    public static String formatHeldTimer(TerritoryProfile profile) {
+        if (profile == null) return null;
+        java.time.Instant acquired = profile.getAcquired();
+        if (acquired == null) {
+            return profile.getReadableRelativeTimeAcquired();
+        }
+        long diffMs = Math.max(0, System.currentTimeMillis() - acquired.toEpochMilli());
+        long totalSeconds = diffMs / 1000;
+        long days = totalSeconds / 86400;
+        long hours = (totalSeconds % 86400) / 3600;
+        long minutes = (totalSeconds % 3600) / 60;
+        long seconds = totalSeconds % 60;
+
+        if (days > 0) {
+            return days + "d " + hours + "h";
+        } else if (hours > 0) {
+            return hours + "h " + minutes + "m";
+        } else if (minutes > 0) {
+            return minutes + "m " + seconds + "s";
+        } else {
+            return seconds + "s";
         }
     }
 
