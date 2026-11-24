@@ -5,12 +5,11 @@
   "name": "potsmod",
   "description": "Potato.",
   "authors": [
-    "pots",
-    "rhythhh"
+    "pots"
   ],
   "contributors": [
-    "Nerfuria (Nia Mod)",
-    "Avo Mod Team"
+    "Nerfuria (Original Nia Mod)",
+    "Avo Mod Team (Consumable Textures)"
   ],
   "contact": {
     "sources": "https://github.com/rhythhh/potsmod",
