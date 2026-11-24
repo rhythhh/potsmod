@@ -169,9 +169,6 @@ public class GuildWebhookFeature extends Feature {
         Minecraft mc = Minecraft.getInstance();
         boolean isOwn = false;
         if (mc.player != null) {
-            if (mc.player.getGameProfile().id() != null) {
-                backendEvent.addProperty("playerUuid", mc.player.getGameProfile().id().toString());
-            }
             String myIgn = mc.player.getGameProfile().name();
             if (realPlayer != null && myIgn.equalsIgnoreCase(realPlayer)) {
                 isOwn = true;
@@ -182,6 +179,9 @@ public class GuildWebhookFeature extends Feature {
                 if (myIgn.equalsIgnoreCase(resolvedReal)) {
                     isOwn = true;
                 }
+            }
+            if (isOwn && mc.player.getGameProfile().id() != null) {
+                backendEvent.addProperty("playerUuid", mc.player.getGameProfile().id().toString());
             }
         }
         if (isOwn) {

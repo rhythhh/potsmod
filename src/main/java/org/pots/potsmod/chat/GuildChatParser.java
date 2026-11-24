@@ -178,14 +178,20 @@ public final class GuildChatParser {
         if (rootColor != null && isGuildChatColor(rootColor.getValue())) {
             return true;
         }
-        Optional<Boolean> leading = message.visit((style, text) -> {
-            if (text == null || text.isBlank()) {
-                return Optional.empty();
+        // In Wynncraft 2.1+, rank glyphs at the start have custom colors (black/dark).
+        // Check if ANY text fragment before or around the colon has guild chat aqua.
+        boolean[] hasAqua = new boolean[]{false};
+        message.visit((style, text) -> {
+            if (text != null && !text.isBlank()) {
+                TextColor color = style.getColor();
+                if (color != null && isGuildChatColor(color.getValue())) {
+                    hasAqua[0] = true;
+                    return Optional.of(true);
+                }
             }
-            TextColor color = style.getColor();
-            return Optional.of(color != null && isGuildChatColor(color.getValue()));
+            return Optional.empty();
         }, Style.EMPTY);
-        return leading.orElse(false);
+        return hasAqua[0];
     }
 
     private static String concat(List<Segment> segments) {
