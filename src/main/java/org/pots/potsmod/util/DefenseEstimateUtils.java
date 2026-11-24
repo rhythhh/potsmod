@@ -114,9 +114,14 @@ public class DefenseEstimateUtils {
             return DefenseEstimate.EMPTY;
         }
 
-        Map<TerritoryUpgrade, Integer> defenses = estimateDefenses(territoryName, territoryInfo);
-        List<String> stats = estimateStats(defenses, territoryInfo);
-        return new DefenseEstimate(Map.copyOf(defenses), List.copyOf(stats));
+        try {
+            Map<TerritoryUpgrade, Integer> defenses = estimateDefenses(territoryName, territoryInfo);
+            if (defenses == null) return DefenseEstimate.EMPTY;
+            List<String> stats = estimateStats(defenses, territoryInfo);
+            return new DefenseEstimate(Map.copyOf(defenses), stats != null ? List.copyOf(stats) : List.of());
+        } catch (Throwable t) {
+            return DefenseEstimate.EMPTY;
+        }
     }
 
     private static Map<TerritoryUpgrade, Integer> estimateDefenses(String territoryName, TerritoryInfo territoryInfo) {
@@ -217,13 +222,18 @@ public class DefenseEstimateUtils {
     }
 
     private static List<String> estimateStats(Map<TerritoryUpgrade, Integer> upgrades, TerritoryInfo info) {
-        TerritoryCombatStats stats = TerritoryUtils.estimateStats(upgrades, info);
-        return List.of(
-                formatDamageLine(stats),
-                formatHealthLine(stats),
-                ChatFormatting.GRAY + "Avg DPS: " + ChatFormatting.RED + formatStat(stats.averageDps()),
-                ChatFormatting.GRAY + "EHP: " + ChatFormatting.GREEN + formatStat(stats.ehp())
-        );
+        try {
+            TerritoryCombatStats stats = TerritoryUtils.estimateStats(upgrades, info);
+            if (stats == null) return List.of();
+            return List.of(
+                    formatDamageLine(stats),
+                    formatHealthLine(stats),
+                    ChatFormatting.GRAY + "Avg DPS: " + ChatFormatting.RED + formatStat(stats.averageDps()),
+                    ChatFormatting.GRAY + "EHP: " + ChatFormatting.GREEN + formatStat(stats.ehp())
+            );
+        } catch (Throwable t) {
+            return List.of();
+        }
     }
 
     private static String formatDamageLine(TerritoryCombatStats stats) {

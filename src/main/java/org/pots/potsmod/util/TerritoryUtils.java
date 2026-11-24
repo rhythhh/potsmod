@@ -102,62 +102,83 @@ public class TerritoryUtils {
     }
 
     public static Optional<String> getHQ(String guild) {
-        List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
-        for (TerritoryPoi terr : territories) {
-            TerritoryInfo info = terr.getTerritoryInfo();
-            if (!guild.equals(info.getGuildName()))
-                continue;
-            if (info.isHeadquarters())
-                return terr.getName().describeConstable();
-        }
+        if (guild == null || guild.isEmpty()) return Optional.empty();
+        try {
+            List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
+            if (territories == null) return Optional.empty();
+            for (TerritoryPoi terr : territories) {
+                if (terr == null) continue;
+                TerritoryInfo info = terr.getTerritoryInfo();
+                if (info == null || !guild.equals(info.getGuildName()))
+                    continue;
+                if (info.isHeadquarters())
+                    return Optional.ofNullable(terr.getName());
+            }
+        } catch (Throwable ignored) {}
         return Optional.empty();
     }
 
     public static int getTerrCount(String guild) {
+        if (guild == null || guild.isEmpty()) return 0;
         int cnt = 0;
-        List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
-        for (TerritoryPoi terr : territories) {
-            TerritoryInfo info = terr.getTerritoryInfo();
-            if (guild.equals(info.getGuildName()))
-                cnt++;
-        }
+        try {
+            List<TerritoryPoi> territories = Models.Territory.getTerritoryPoisFromAdvancement();
+            if (territories == null) return 0;
+            for (TerritoryPoi terr : territories) {
+                if (terr == null) continue;
+                TerritoryInfo info = terr.getTerritoryInfo();
+                if (info != null && guild.equals(info.getGuildName()))
+                    cnt++;
+            }
+        } catch (Throwable ignored) {}
         return cnt;
     }
 
     public static double getTreasuryBonus(String territoryName) {
-        TerritoryInfo territory = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
-        GuildResourceValues level = territory.getTreasury();
+        try {
+            var poi = Models.Territory.getTerritoryPoiFromAdvancement(territoryName);
+            if (poi == null || poi.getTerritoryInfo() == null) return 0.0;
+            TerritoryInfo territory = poi.getTerritoryInfo();
+            GuildResourceValues level = territory.getTreasury();
+            if (level == null || level.getLevel() <= 1)
+                return 0.0;
 
-        if (level.getLevel() <= 1)
+            double tresValue = switch (level) {
+                case NONE, VERY_LOW -> 0.0;
+                case LOW -> 0.1;
+                case MEDIUM -> 0.2;
+                case HIGH -> 0.25;
+                case VERY_HIGH -> 0.3;
+            };
+
+            int distance = getHQDistance(territoryName);
+            double distanceModifier = switch (distance) {
+                case 0, 1, 2 -> 1.0;
+                case 3 -> 0.85;
+                case 4 -> 0.7;
+                case 5 -> 0.55;
+                default -> 0.4;
+            };
+
+            return tresValue * distanceModifier;
+        } catch (Throwable t) {
             return 0.0;
-
-        double tresValue = switch (level) {
-            case NONE, VERY_LOW -> 0.0;
-            case LOW -> 0.1;
-            case MEDIUM -> 0.2;
-            case HIGH -> 0.25;
-            case VERY_HIGH -> 0.3;
-        };
-
-        int distance = getHQDistance(territoryName);
-        double distanceModifier = switch (distance) {
-            case 0, 1, 2 -> 1.0;
-            case 3 -> 0.85;
-            case 4 -> 0.7;
-            case 5 -> 0.55;
-            default -> 0.4;
-        };
-
-        return tresValue * distanceModifier;
+        }
     }
 
     public static double getProductionModifier(String territoryName, GuildResource resource) {
-        int baseProd = TerritoryBaseManager.getTerritory(territoryName).getProduction(resource);
-        TerritoryInfo territoryInfo = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
-        int currProd = territoryInfo.getGeneration(resource);
-        if (baseProd == 0)
-            return 0;
-        return ((double) currProd) / baseProd;
+        try {
+            var base = TerritoryBaseManager.getTerritory(territoryName);
+            if (base == null) return 0.0;
+            int baseProd = base.getProduction(resource);
+            if (baseProd == 0) return 0.0;
+            var poi = Models.Territory.getTerritoryPoiFromAdvancement(territoryName);
+            if (poi == null || poi.getTerritoryInfo() == null) return 0.0;
+            int currProd = poi.getTerritoryInfo().getGeneration(resource);
+            return ((double) currProd) / baseProd;
+        } catch (Throwable t) {
+            return 0.0;
+        }
     }
 
     public static TerritoryInfo territoryInfo(String territoryName) {
@@ -200,24 +221,30 @@ public class TerritoryUtils {
     }
 
     private static int ownedConnections(TerritoryInfo info) {
+        if (info == null) return 0;
         String guild = info.getGuildName();
-        if (guild == null) {
+        if (guild == null || guild.isEmpty()) {
             return 0;
         }
 
         int count = 0;
-        for (String connection : info.getTradingRoutes()) {
-            TerritoryInfo connected = territoryInfo(connection);
-            if (connected != null && guild.equals(connected.getGuildName())) {
-                count++;
+        List<String> routes = info.getTradingRoutes();
+        if (routes != null) {
+            for (String connection : routes) {
+                if (connection == null) continue;
+                TerritoryInfo connected = territoryInfo(connection);
+                if (connected != null && guild.equals(connected.getGuildName())) {
+                    count++;
+                }
             }
         }
         return count;
     }
 
     private static int ownedExternalConnections(TerritoryInfo info) {
+        if (info == null) return 0;
         String guild = info.getGuildName();
-        if (guild == null) {
+        if (guild == null || guild.isEmpty()) {
             return 0;
         }
 
@@ -229,11 +256,15 @@ public class TerritoryUtils {
         int count = 0;
         while (!queue.isEmpty()) {
             TerritoryInfoDepth current = queue.removeFirst();
-            if (current.depth() >= 3) {
+            if (current == null || current.info() == null || current.depth() >= 3) {
                 continue;
             }
 
-            for (String connection : current.info().getTradingRoutes()) {
+            List<String> routes = current.info().getTradingRoutes();
+            if (routes == null) continue;
+
+            for (String connection : routes) {
+                if (connection == null) continue;
                 TerritoryInfo connected = territoryInfo(connection);
                 if (connected == null || !visited.add(connected)) {
                     continue;
@@ -463,46 +494,56 @@ public class TerritoryUtils {
 
         // Start at HQ and use bfs to find distance to all territories.
         private void computeHQDistances(String territoryName) {
-            TerritoryInfo startTerr = Models.Territory.getTerritoryPoiFromAdvancement(territoryName).getTerritoryInfo();
-            String guild = startTerr.getGuildName();
-            if (guild == null)
-                return;
-            Optional<String> HQName = getHQ(guild);
-            if (HQName.isEmpty())
-                return;
-            if (!territoryName.equals(HQName.get()) && cache.containsKey(HQName.get()))
-                return;
+            try {
+                var startPoi = Models.Territory.getTerritoryPoiFromAdvancement(territoryName);
+                if (startPoi == null || startPoi.getTerritoryInfo() == null) return;
+                TerritoryInfo startTerr = startPoi.getTerritoryInfo();
+                String guild = startTerr.getGuildName();
+                if (guild == null || guild.isEmpty())
+                    return;
+                Optional<String> HQName = getHQ(guild);
+                if (HQName.isEmpty())
+                    return;
+                if (!territoryName.equals(HQName.get()) && cache.containsKey(HQName.get()))
+                    return;
 
-            startTerr = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get()).getTerritoryInfo();
-            cache.put(HQName.get(), 0);
+                var hqPoi = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get());
+                if (hqPoi == null || hqPoi.getTerritoryInfo() == null) return;
+                startTerr = hqPoi.getTerritoryInfo();
+                cache.put(HQName.get(), 0);
 
-            int cnt = getTerrCount(guild);
-            ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
-            Set<String> checked = new HashSet<>();
-            queue.add(new Pair<>(startTerr, 0));
-            checked.add(HQName.get());
+                int cnt = getTerrCount(guild);
+                ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
+                Set<String> checked = new HashSet<>();
+                queue.add(new Pair<>(startTerr, 0));
+                checked.add(HQName.get());
 
-            while (!queue.isEmpty()) {
-                var next = queue.poll();
-                TerritoryInfo terr = next.a();
-                int dist = next.b();
+                while (!queue.isEmpty()) {
+                    var next = queue.poll();
+                    if (next == null || next.a() == null) continue;
+                    TerritoryInfo terr = next.a();
+                    int dist = next.b();
 
-                List<String> conns = terr.getTradingRoutes();
-                for (String connName : conns) {
-                    if (checked.contains(connName))
-                        continue;
-                    checked.add(connName);
+                    List<String> conns = terr.getTradingRoutes();
+                    if (conns == null) continue;
+                    for (String connName : conns) {
+                        if (connName == null || checked.contains(connName))
+                            continue;
+                        checked.add(connName);
 
-                    TerritoryInfo conn = Models.Territory.getTerritoryPoiFromAdvancement(connName).getTerritoryInfo();
-                    if (guild.equals(conn.getGuildName())) {
-                        cache.put(connName, dist + 1);
-                        cnt--;
-                        if (cnt == 0)
-                            return;
+                        var connPoi = Models.Territory.getTerritoryPoiFromAdvancement(connName);
+                        if (connPoi == null || connPoi.getTerritoryInfo() == null) continue;
+                        TerritoryInfo conn = connPoi.getTerritoryInfo();
+                        if (guild.equals(conn.getGuildName())) {
+                            cache.put(connName, dist + 1);
+                            cnt--;
+                            if (cnt <= 0)
+                                return;
+                        }
+                        queue.add(new Pair<>(conn, dist + 1));
                     }
-                    queue.add(new Pair<>(conn, dist + 1));
                 }
-            }
+            } catch (Throwable ignored) {}
         }
     }
 
@@ -531,38 +572,46 @@ public class TerritoryUtils {
 
         // Start at HQ and use bfs to find queue time to all territories.
         private void computeQueueTimes() {
-            String guild = Models.Guild.getGuildName();
-            if (guild == null)
-                return;
-            Optional<String> HQName = getHQ(guild);
-            if (HQName.isEmpty()) {
-                return;
-            }
-
-            TerritoryInfo startTerr = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get()).getTerritoryInfo();
-            cache.put(HQName.get(), 1);
-
-            ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
-            Set<String> checked = new HashSet<>();
-            queue.add(new Pair<>(startTerr, 1));
-            checked.add(HQName.get());
-
-            while (!queue.isEmpty()) {
-                var next = queue.poll();
-                TerritoryInfo terr = next.a();
-                int time = next.b();
-
-                List<String> conns = terr.getTradingRoutes();
-                for (String connName : conns) {
-                    if (checked.contains(connName))
-                        continue;
-                    checked.add(connName);
-
-                    TerritoryInfo conn = Models.Territory.getTerritoryPoiFromAdvancement(connName).getTerritoryInfo();
-                    cache.put(connName, time + 1);
-                    queue.add(new Pair<>(conn, time + 1));
+            try {
+                String guild = Models.Guild.getGuildName();
+                if (guild == null || guild.isEmpty())
+                    return;
+                Optional<String> HQName = getHQ(guild);
+                if (HQName.isEmpty()) {
+                    return;
                 }
-            }
+
+                var hqPoi = Models.Territory.getTerritoryPoiFromAdvancement(HQName.get());
+                if (hqPoi == null || hqPoi.getTerritoryInfo() == null) return;
+                TerritoryInfo startTerr = hqPoi.getTerritoryInfo();
+                cache.put(HQName.get(), 1);
+
+                ArrayDeque<Pair<TerritoryInfo, Integer>> queue = new ArrayDeque<>();
+                Set<String> checked = new HashSet<>();
+                queue.add(new Pair<>(startTerr, 1));
+                checked.add(HQName.get());
+
+                while (!queue.isEmpty()) {
+                    var next = queue.poll();
+                    if (next == null || next.a() == null) continue;
+                    TerritoryInfo terr = next.a();
+                    int time = next.b();
+
+                    List<String> conns = terr.getTradingRoutes();
+                    if (conns == null) continue;
+                    for (String connName : conns) {
+                        if (connName == null || checked.contains(connName))
+                            continue;
+                        checked.add(connName);
+
+                        var connPoi = Models.Territory.getTerritoryPoiFromAdvancement(connName);
+                        if (connPoi == null || connPoi.getTerritoryInfo() == null) continue;
+                        TerritoryInfo conn = connPoi.getTerritoryInfo();
+                        cache.put(connName, time + 1);
+                        queue.add(new Pair<>(conn, time + 1));
+                    }
+                }
+            } catch (Throwable ignored) {}
         }
     }
 }

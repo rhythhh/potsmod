@@ -5,6 +5,7 @@
  */
 package org.pots.potsmod.features.economysandbox;
 
+import org.pots.potsmod.PotsmodClient;
 import com.mojang.blaze3d.platform.cursor.CursorTypes;
 import com.wynntils.models.territories.TerritoryInfo;
 import com.wynntils.models.territories.profile.TerritoryProfile;
@@ -476,7 +477,11 @@ public class EconomySandboxScreen extends AbstractMapScreen {
 
         // 6. Map Hover Tooltip (if not hovering UI and no modal)
         if (modal == ModalMode.NONE && hoveredTerr != null && !isMouseOverUI(mouseX, mouseY)) {
-            renderTerritoryTooltip(g, hoveredTerr, mouseX, mouseY);
+            try {
+                renderTerritoryTooltip(g, hoveredTerr, mouseX, mouseY);
+            } catch (Throwable t) {
+                PotsmodClient.LOGGER.error("Error rendering sandbox tooltip", t);
+            }
         }
 
         // 7. Bulk Loadout Banner

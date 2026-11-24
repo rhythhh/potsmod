@@ -4,6 +4,7 @@
  */
 package org.pots.potsmod.features.territorymap;
 
+import org.pots.potsmod.PotsmodClient;
 import com.wynntils.core.components.Models;
 import org.pots.potsmod.models.defense.DefenseEstimate;
 import com.wynntils.models.territories.TerritoryInfo;
@@ -301,7 +302,11 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
         if (hoveredButton) {
             renderTooltip(g, mouseX, mouseY);
         } else if (hoveredTerr != null) {
-            renderTerritoryTooltip(g, hoveredTerr, mouseX, mouseY);
+            try {
+                renderTerritoryTooltip(g, hoveredTerr, mouseX, mouseY);
+            } catch (Throwable t) {
+                PotsmodClient.LOGGER.error("Error rendering territory tooltip for {}", hoveredTerr, t);
+            }
         }
     }
 
@@ -877,7 +882,14 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
         }
 
         // 6. Total Stats & Combat Stats
-        DefenseEstimate estimate = info != null ? DefenseEstimateUtils.estimate(terrName, info) : DefenseEstimate.EMPTY;
+        DefenseEstimate estimate = DefenseEstimate.EMPTY;
+        try {
+            if (info != null) {
+                estimate = DefenseEstimateUtils.estimate(terrName, info);
+            }
+        } catch (Throwable t) {
+            estimate = DefenseEstimate.EMPTY;
+        }
         if (estimate != DefenseEstimate.EMPTY) {
             Map<TerritoryUpgrade, Integer> defs = estimate.defenses();
 
