@@ -148,9 +148,9 @@ public class SettingCard {
     }
 
     private int computeControlWidth(Font font) {
+        int w = 18; // info icon space
         if (section != null) {
-            int w = section.hasToggle() ? ToggleSwitch.WIDTH : 0;
-            if (!subCards.isEmpty()) w += 20;
+            if (section.hasToggle()) w += ToggleSwitch.WIDTH;
             return Math.max(30, w);
         }
         if (setting instanceof BooleanSetting) return ToggleSwitch.WIDTH;
@@ -221,19 +221,42 @@ public class SettingCard {
         }
     }
 
-    private void renderControl(GuiGraphics g, Font font, int rightX, int centerY, int mx, int my) {
-        if (section != null) {
-            if (!subCards.isEmpty()) {
-                // Kebab icon (3 vertical 2x2 dots)
-                int kebabX = rightX - 8;
-                int kebabY = centerY - 5;
-                boolean kebabHover = mx >= kebabX - 4 && mx <= kebabX + 6 && my >= kebabY - 4 && my <= kebabY + 14;
-                int dotColor = kebabHover ? ThemeTokens.TEXT_ACTIVE : ThemeTokens.TEXT_INACTIVE;
-                g.fill(kebabX, kebabY, kebabX + 2, kebabY + 2, dotColor);
-                g.fill(kebabX, kebabY + 4, kebabX + 2, kebabY + 6, dotColor);
-                g.fill(kebabX, kebabY + 8, kebabX + 2, kebabY + 10, dotColor);
-                rightX -= 16;
+    public String getHoveredExplanation(int mx, int my) {
+        if (subExpanded) {
+            for (SettingCard sub : subCards) {
+                String subExp = sub.getHoveredExplanation(mx, my);
+                if (subExp != null) return subExp;
             }
+        }
+        int activeH = subExpanded ? headerHeight : height;
+        if (mx < x || mx > x + width || my < y || my > y + activeH) {
+            return null;
+        }
+
+        int infoX = x + width - ThemeTokens.CARD_PADDING_X - 10;
+        int infoY = y + headerHeight / 2;
+        int distSq = (mx - infoX) * (mx - infoX) + (my - infoY) * (my - infoY);
+        if (distSq <= 64) { // 8px radius
+            return org.pots.potsmod.util.FeatureHelpManager.getExplanation(id, title, description);
+        }
+        return null;
+    }
+
+    private void renderControl(GuiGraphics g, Font font, int rightX, int centerY, int mx, int my) {
+        // Render ⓘ Info Icon at the end of every feature card
+        int infoX = rightX - 6;
+        int infoY = centerY;
+        boolean infoHovered = (mx - infoX) * (mx - infoX) + (my - infoY) * (my - infoY) <= 64;
+        int circleBg = infoHovered ? 0xFF352418 : 0xFF1C140E;
+        int circleBorder = infoHovered ? 0xFFF5B545 : 0x55E5A84B;
+        Render2D.shaderRoundedSurface(g, infoX - 6, infoY - 6, 12, 12, 6, circleBg, circleBorder);
+        String infoChar = "i";
+        int iw = font.width(infoChar);
+        int infoColor = infoHovered ? 0xFFFFF5E4 : ThemeTokens.TEXT_DESCRIPTION;
+        g.drawString(font, infoChar, infoX - iw / 2, infoY - font.lineHeight / 2 + 1, infoColor, false);
+        rightX -= 16;
+
+        if (section != null) {
             if (section.hasToggle()) {
                 toggleAnim.run(section.isEnabled() ? 1.0f : 0.0f);
                 ToggleSwitch.render(g, rightX - ToggleSwitch.WIDTH, centerY - ToggleSwitch.HEIGHT / 2, (float) toggleAnim.getValue());
@@ -342,11 +365,16 @@ public class SettingCard {
         int controlRight = x + width - ThemeTokens.CARD_PADDING_X;
         int centerY = y + headerHeight / 2;
 
-        if (section != null) {
-            if (!subCards.isEmpty()) {
-                controlRight -= 16;
-            }
+        // Check info icon click (consume click so card doesn't toggle)
+        int infoX = controlRight - 6;
+        int infoY = centerY;
+        if ((mx - infoX) * (mx - infoX) + (my - infoY) * (my - infoY) <= 64) {
+            org.pots.potsmod.util.ModSounds.playClick();
+            return true;
+        }
+        controlRight -= 16;
 
+        if (section != null) {
             if (section.hasToggle()) {
                 int swX = controlRight - ToggleSwitch.WIDTH;
                 int swY = centerY - ToggleSwitch.HEIGHT / 2;

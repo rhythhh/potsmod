@@ -1,0 +1,20 @@
+{
+  "client": "Core client settings for Potsmod, including automatic updates and backend Wynncraft API endpoints.",
+  "gui": "Customize the Potsmod Click GUI appearance, animations, theme colors, and layout scale.",
+  "view_model": "Customize player first-person hand and item render positions, rotations, and scales.",
+  "inventory_calculator": "Shows total raw emeralds and liquid emeralds calculated in your inventory and bank.",
+  "custom_territory_map": "Revamped interactive full-screen Wynncraft territory guild map with live defense info.",
+  "defense_color_overlay": "Renders colored defense overlays on territory maps based on tower upgrade level and defenses.",
+  "economy_sandbox": "Interactive economy and territory production planning tool with mock rates and resource paths.",
+  "newest_world": "Quick keybind to automatically detect and switch to the newest online Wynncraft world server.",
+  "world_map_hud": "Displays a mini-map HUD showing live territory borders, routes, and defense colors in your world.",
+  "res_tick": "Displays a countdown HUD overlay predicting when the next global territory resource tick occurs.",
+  "territory_route_flow": "Draws animated flowing route connections between connected territories on the guild map.",
+  "territory_boxes": "Displays 3D bounding box outlines around territory zones in the world.",
+  "consu_text": "Displays remaining consumable duration timers and labels cleanly on your HUD.",
+  "tower_ehp": "Calculates and displays effective health pool (EHP) numbers for enemy guild war towers.",
+  "radiance_sync": "Live synchronized guild war coordinator HUD with team states, attack alerts, and timers.",
+  "chat_encryption": "End-to-end encrypted chat messaging using AES-256-GCM for secret guild and squad communication.",
+  "auto_stream": "Automatically sends /stream when entering Wynncraft to hide server info from stream snipers.",
+  "shout_filter": "Filters and cleans up annoying public shout messages and spam in the chat."
+}

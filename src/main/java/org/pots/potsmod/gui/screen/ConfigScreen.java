@@ -35,8 +35,13 @@ public class ConfigScreen extends Screen {
     private final Animation openAnim = new Animation(Easing.EASE_OUT_CUBIC, 220);
     private final Animation underlineAnim = new Animation(Easing.EASE_OUT_CUBIC, 180);
 
+    // Evasive "Potato GUI" text position
+    private float evasiveTitleX = 0f;
+    private float evasiveTargetX = 0f;
+
     // Categories / Pages
     private enum SidebarPage {
+        ALL("All", null),
         GENERAL("General", SettingCategory.GENERAL),
         WAR("War", SettingCategory.WAR),
         SOCIAL("Social", SettingCategory.SOCIAL),
@@ -53,7 +58,7 @@ public class ConfigScreen extends Screen {
         }
     }
 
-    private SidebarPage activePage = SidebarPage.GENERAL;
+    private SidebarPage activePage = SidebarPage.ALL;
     private final Map<SidebarPage, List<SettingCard>> pageCards = new EnumMap<>(SidebarPage.class);
     private final List<EditBox> textInputs = new ArrayList<>();
 
@@ -120,6 +125,23 @@ public class ConfigScreen extends Screen {
         if (searchBox != null) textInputs.add(searchBox);
 
         for (SidebarPage page : SidebarPage.values()) {
+            if (page == SidebarPage.ALL) {
+                List<SettingCard> allCards = new ArrayList<>();
+                for (SettingCategory cat : List.of(SettingCategory.GENERAL, SettingCategory.WAR, SettingCategory.SOCIAL)) {
+                    for (SettingSection sec : PotsmodConfig.getSections(cat)) {
+                        SettingCard card = SettingCard.ofSection(sec, sec.title().toUpperCase(Locale.ROOT));
+                        card.initEditBoxes(font, textInputs);
+                        for (EditBox box : textInputs) {
+                            if (!children().contains(box)) {
+                                addRenderableWidget(box);
+                            }
+                        }
+                        allCards.add(card);
+                    }
+                }
+                pageCards.put(page, allCards);
+                continue;
+            }
             if (page.category == null) continue;
 
             List<SettingCard> cards = new ArrayList<>();
@@ -215,29 +237,126 @@ public class ConfigScreen extends Screen {
 
         // Render any open dropdown popup on top z-order (outside scroll clip!)
         renderDropdownPopup(g, mx, my);
+
+        // Render tooltips for sidebar tab buttons & card info icons
+        renderHoverTooltips(g, mx, my);
+    }
+
+    private void renderHoverTooltips(GuiGraphics g, int mx, int my) {
+        // Sidebar tab tooltips
+        if (mx >= panelX && mx <= panelX + SIDEBAR_WIDTH) {
+            int btnSize = 24;
+            int btnX = panelX + (SIDEBAR_WIDTH - btnSize) / 2;
+            int startY = panelY + 32;
+            SidebarPage[] pages = SidebarPage.values();
+
+            for (int i = 0; i < pages.length; i++) {
+                int by = startY + i * 27;
+                if (i >= 4) by += 4;
+                if (mx >= btnX && mx <= btnX + btnSize && my >= by && my <= by + btnSize) {
+                    drawSimpleTooltip(g, pages[i].label, mx + 8, my);
+                    return;
+                }
+            }
+
+            int topPotSize = 18;
+            int topPotX = panelX + (SIDEBAR_WIDTH - topPotSize) / 2;
+            int topPotY = panelY + 7;
+            if (mx >= topPotX - 2 && mx <= topPotX + topPotSize + 2 && my >= topPotY - 2 && my <= topPotY + topPotSize + 2) {
+                drawSimpleTooltip(g, "Meow! (Click me)", mx + 8, my);
+                return;
+            }
+        }
+
+        // Setting card (i) info explanation tooltips
+        List<SettingCard> cards = pageCards.get(activePage);
+        if (cards != null && my >= panelY + HEADER_HEIGHT && my <= panelY + panelH) {
+            String tabFilter = selectedTab > 0 && selectedTab < currentTabs.size() ? currentTabs.get(selectedTab) : null;
+            for (SettingCard card : cards) {
+                if (tabFilter != null && !card.getTitle().equals(tabFilter)) continue;
+                String explanation = card.getHoveredExplanation(mx, my);
+                if (explanation != null) {
+                    drawWrappedTooltip(g, card.getTitle(), explanation, mx, my);
+                    return;
+                }
+            }
+        }
+    }
+
+    private void drawSimpleTooltip(GuiGraphics g, String text, int x, int y) {
+        Component comp = GuiStyle.styled(text);
+        int tw = font.width(comp) + 10;
+        int th = font.lineHeight + 8;
+        int tx = Math.min(x, width - tw - 4);
+        int ty = Math.min(y, height - th - 4);
+        Render2D.dropShadow(g, new org.pots.potsmod.gui.render.UiRect(tx, ty, tw, th), 4, 0x90000000, 4);
+        Render2D.shaderRoundedSurface(g, tx, ty, tw, th, 4, 0xFA1E140E, 0xFFE5A84B);
+        g.drawString(font, comp, tx + 5, ty + 4, 0xFFFFF5E4, false);
+    }
+
+    private void drawWrappedTooltip(GuiGraphics g, String title, String explanation, int mouseX, int mouseY) {
+        int maxW = 200;
+        List<net.minecraft.util.FormattedCharSequence> titleLines = org.pots.potsmod.gui.component.WrappedText.lines(font, title, maxW);
+        List<net.minecraft.util.FormattedCharSequence> bodyLines = org.pots.potsmod.gui.component.WrappedText.lines(font, explanation, maxW);
+
+        int tw = 0;
+        for (var line : titleLines) tw = Math.max(tw, font.width(line));
+        for (var line : bodyLines) tw = Math.max(tw, font.width(line));
+        tw = Math.max(120, tw + 14);
+
+        int th = titleLines.size() * font.lineHeight + 4 + bodyLines.size() * (font.lineHeight + 1) + 12;
+
+        int tx = Math.min(mouseX + 12, width - tw - 6);
+        int ty = Math.min(mouseY + 8, height - th - 6);
+        tx = Math.max(4, tx);
+        ty = Math.max(4, ty);
+
+        Render2D.dropShadow(g, new org.pots.potsmod.gui.render.UiRect(tx, ty, tw, th), 6, 0xA0000000, 6);
+        Render2D.shaderRoundedSurface(g, tx, ty, tw, th, 6, 0xF519130E, 0xFFF5B545);
+
+        int curY = ty + 6;
+        for (var line : titleLines) {
+            g.drawString(font, line, tx + 7, curY, 0xFFF5B545, false);
+            curY += font.lineHeight;
+        }
+        curY += 2;
+        Render2D.horizontalLine(g, tx + 6, curY, tw - 12, 0x35E5A84B);
+        curY += 4;
+        for (var line : bodyLines) {
+            g.drawString(font, line, tx + 7, curY, 0xFFE0D5C7, false);
+            curY += font.lineHeight + 1;
+        }
     }
 
     private void renderSidebar(GuiGraphics g, int px, int py, int mx, int my) {
-        // Logo at top: Stylized ringed-planet / 'r' icon with golden potato accents
-        int logoX = px + SIDEBAR_WIDTH / 2;
-        int logoY = py + 14;
+        // Logo at top: pot.png, slightly smaller than bottom, no bounce animation, golden glow on hover
+        int topPotSize = 18;
+        int topPotX = px + (SIDEBAR_WIDTH - topPotSize) / 2;
+        int topPotY = py + 7;
 
-        // Clean geometric ringed planet logo with potato colors
-        Render2D.circle(g, logoX, logoY, 9, 0xFFE5A84B);
-        Render2D.circle(g, logoX, logoY, 7, ThemeTokens.SIDEBAR_BG);
-        Render2D.circle(g, logoX, logoY, 4, 0xFFF5B545);
-        g.fill(logoX - 7, logoY, logoX + 7, logoY + 1, 0xFFE5A84B);
+        boolean topPotHovered = mx >= topPotX - 2 && mx <= topPotX + topPotSize + 2
+                && my >= topPotY - 2 && my <= topPotY + topPotSize + 2;
+
+        int topPotBg = topPotHovered ? 0xFF3D2A1C : ThemeTokens.SIDEBAR_BG;
+        int topPotBorder = topPotHovered ? 0xFFF5B545 : 0x40D48B30;
+        Render2D.shaderRoundedSurface(g, topPotX - 2, topPotY - 2, topPotSize + 4, topPotSize + 4, 4, topPotBg, topPotBorder);
+
+        try {
+            RenderUtils.drawScalingTexturedRect(g, POTATO_ICON, topPotX, topPotY, topPotSize, topPotSize, 1500, 1500);
+        } catch (Exception e) {
+            Render2D.shaderRoundedRect(g, topPotX, topPotY, topPotSize, topPotSize, 4, 0xFF8B592D);
+        }
 
         // Category icon buttons
         int btnSize = 24;
         int btnX = px + (SIDEBAR_WIDTH - btnSize) / 2;
-        int startY = py + 34;
+        int startY = py + 32;
 
         SidebarPage[] pages = SidebarPage.values();
         for (int i = 0; i < pages.length; i++) {
             SidebarPage page = pages[i];
-            int by = startY + i * 28;
-            if (i >= 3) by += 6; // Small gap before HUD / Ignore
+            int by = startY + i * 27;
+            if (i >= 4) by += 4; // Small gap before HUD / Ignore / Binds
 
             boolean active = page == activePage;
             boolean hovered = mx >= btnX && mx <= btnX + btnSize && my >= by && my <= by + btnSize;
@@ -275,6 +394,11 @@ public class ConfigScreen extends Screen {
 
     private void renderPageIcon(GuiGraphics g, SidebarPage page, int cx, int cy, int color) {
         switch (page) {
+            case ALL -> { // 3 horizontal stack lines / list icon
+                g.fill(cx - 5, cy - 4, cx + 5, cy - 2, color);
+                g.fill(cx - 5, cy - 1, cx + 5, cy + 1, color);
+                g.fill(cx - 5, cy + 2, cx + 5, cy + 4, color);
+            }
             case GENERAL -> { // Minimalist sliders icon
                 g.fill(cx - 5, cy - 3, cx + 5, cy - 2, color);
                 g.fill(cx - 3, cy - 5, cx - 1, cy - 1, color);
@@ -355,16 +479,50 @@ public class ConfigScreen extends Screen {
 
         for (int i = 0; i < currentTabs.size(); i++) {
             String tabName = currentTabs.get(i);
-            int tw = font.width(GuiStyle.styled(tabName));
+            int tw;
+            boolean isPotatoTitle = (i == 0);
+            int curX = tabX;
+
+            if (isPotatoTitle) {
+                tabName = "Potato GUI";
+                tw = font.width(GuiStyle.styled(tabName));
+
+                // Evasive hover behavior: if mouse is close to Potato GUI, smoothly slide away
+                float targetOffset = 0f;
+                int baseY = y + (HEADER_HEIGHT - font.lineHeight) / 2;
+                if (my >= y && my <= y + HEADER_HEIGHT) {
+                    float mouseDist = Math.abs(mx - (curX + evasiveTitleX + tw / 2.0f));
+                    if (mouseDist < 45f) {
+                        float pushDir = (mx < curX + evasiveTitleX + tw / 2.0f) ? 1.0f : -1.0f;
+                        targetOffset = pushDir * (45f - mouseDist) * 1.3f;
+                    }
+                }
+                // Constrain within tab area so it never escapes header / screen bounds
+                float maxOffsetRight = Math.max(0, tabAreaW - tw - 10);
+                targetOffset = Math.clamp(targetOffset, -10f, maxOffsetRight);
+                evasiveTargetX = targetOffset;
+                evasiveTitleX += (evasiveTargetX - evasiveTitleX) * 0.25f;
+                curX += Math.round(evasiveTitleX);
+            } else {
+                tw = font.width(GuiStyle.styled(tabName));
+            }
+
             boolean active = i == selectedTab;
-            boolean hovered = mx >= tabX && mx <= tabX + tw && my >= y && my <= y + HEADER_HEIGHT
+            boolean hovered = mx >= curX && mx <= curX + tw && my >= y && my <= y + HEADER_HEIGHT
                     && mx >= tabStartX && mx <= tabStartX + tabAreaW;
 
-            int color = active ? ThemeTokens.TEXT_ACTIVE : (hovered ? 0xFFE5A84B : ThemeTokens.TEXT_INACTIVE);
-            g.drawString(font, GuiStyle.styled(tabName), tabX, tabY, color, false);
+            int color;
+            if (isPotatoTitle) {
+                // Goldenish matching a roasted potato color (#F5B545)
+                color = active ? 0xFFF5B545 : (hovered ? 0xFFFFD166 : 0xFFE5A84B);
+            } else {
+                color = active ? ThemeTokens.TEXT_ACTIVE : (hovered ? 0xFFE5A84B : ThemeTokens.TEXT_INACTIVE);
+            }
+
+            g.drawString(font, GuiStyle.styled(tabName), curX, tabY, color, false);
 
             if (active) {
-                underlineTargetX = tabX;
+                underlineTargetX = curX;
             }
 
             tabX += tw + 14;
@@ -566,16 +724,26 @@ public class ConfigScreen extends Screen {
 
         // Sidebar clicks
         if (mx >= panelX && mx <= panelX + SIDEBAR_WIDTH) {
+            // Check top pot logo click (Meow sound!)
+            int topPotSize = 18;
+            int topPotX = panelX + (SIDEBAR_WIDTH - topPotSize) / 2;
+            int topPotY = panelY + 7;
+            if (mx >= topPotX - 2 && mx <= topPotX + topPotSize + 2 && my >= topPotY - 2 && my <= topPotY + topPotSize + 2) {
+                org.pots.potsmod.util.ModSounds.playMeow();
+                return true;
+            }
+
             int btnSize = 24;
             int btnX = panelX + (SIDEBAR_WIDTH - btnSize) / 2;
-            int startY = panelY + 34;
+            int startY = panelY + 32;
             SidebarPage[] pages = SidebarPage.values();
 
             for (int i = 0; i < pages.length; i++) {
-                int by = startY + i * 28;
-                if (i >= 3) by += 6;
+                int by = startY + i * 27;
+                if (i >= 4) by += 4;
                 if (mx >= btnX && mx <= btnX + btnSize && my >= by && my <= by + btnSize) {
                     SidebarPage target = pages[i];
+                    org.pots.potsmod.util.ModSounds.playClick();
                     if (target == SidebarPage.OVERLAYS) {
                         org.pots.potsmod.managers.OverlayManager.openConfig();
                         return true;
@@ -613,8 +781,11 @@ public class ConfigScreen extends Screen {
             if (mx >= tabStartX && mx <= tabStartX + tabAreaW) {
                 int tabX = tabStartX + (int) Math.round(tabScroll);
                 for (int i = 0; i < currentTabs.size(); i++) {
-                    int tw = font.width(GuiStyle.styled(currentTabs.get(i)));
-                    if (mx >= tabX && mx <= tabX + tw) {
+                    String tabName = (i == 0) ? "Potato GUI" : currentTabs.get(i);
+                    int tw = font.width(GuiStyle.styled(tabName));
+                    int curX = (i == 0) ? tabX + Math.round(evasiveTitleX) : tabX;
+                    if (mx >= curX && mx <= curX + tw) {
+                        org.pots.potsmod.util.ModSounds.playClick();
                         selectedTab = i;
                         scroll = scrollTarget = 0;
                         return true;
@@ -625,16 +796,19 @@ public class ConfigScreen extends Screen {
 
             // Right action buttons
             if (mx >= playX && mx <= playX + btnSize) {
+                org.pots.potsmod.util.ModSounds.playClick();
                 // Play / Run action trigger
                 return true;
             }
 
             if (mx >= folderX && mx <= folderX + btnSize) {
+                org.pots.potsmod.util.ModSounds.playClick();
                 // Folder / Import action
                 return true;
             }
 
             if (mx >= searchBtnX && mx <= searchBtnX + btnSize) {
+                org.pots.potsmod.util.ModSounds.playClick();
                 searchOpen = !searchOpen;
                 if (searchOpen) {
                     searchBox.setFocused(true);
