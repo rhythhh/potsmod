@@ -161,16 +161,7 @@ public class ConfigScreen extends Screen {
 
     private void updateTabsForActivePage() {
         currentTabs.clear();
-        currentTabs.add("All");
-
-        List<SettingCard> cards = pageCards.get(activePage);
-        if (cards != null) {
-            for (SettingCard card : cards) {
-                if (!currentTabs.contains(card.getTitle())) {
-                    currentTabs.add(card.getTitle());
-                }
-            }
-        }
+        currentTabs.add("Potato GUI");
         selectedTab = 0;
         underlineX = underlineTargetX = 0;
         scroll = scrollTarget = 0;
@@ -781,7 +772,7 @@ public class ConfigScreen extends Screen {
             if (mx >= tabStartX && mx <= tabStartX + tabAreaW) {
                 int tabX = tabStartX + (int) Math.round(tabScroll);
                 for (int i = 0; i < currentTabs.size(); i++) {
-                    String tabName = (i == 0) ? "Potato GUI" : currentTabs.get(i);
+                    String tabName = currentTabs.get(i);
                     int tw = font.width(GuiStyle.styled(tabName));
                     int curX = (i == 0) ? tabX + Math.round(evasiveTitleX) : tabX;
                     if (mx >= curX && mx <= curX + tw) {

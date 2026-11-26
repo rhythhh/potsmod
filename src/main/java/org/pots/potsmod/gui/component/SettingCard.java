@@ -148,23 +148,23 @@ public class SettingCard {
     }
 
     private int computeControlWidth(Font font) {
-        int w = 18; // info icon space
+        int w = 24; // info icon space + gap
         if (section != null) {
-            if (section.hasToggle()) w += ToggleSwitch.WIDTH;
-            return Math.max(30, w);
+            if (section.hasToggle()) w += ToggleSwitch.WIDTH + 8;
+            return Math.max(46, w);
         }
-        if (setting instanceof BooleanSetting) return ToggleSwitch.WIDTH;
-        if (dropdown != null) return 80;
-        if (keybind != null) return keybind.getWidth(font);
-        if (stepper != null) return 60;
-        if (slider != null) return 80;
-        if (editBox != null) return 100;
+        if (setting instanceof BooleanSetting) return ToggleSwitch.WIDTH + 24;
+        if (dropdown != null) return 80 + 24;
+        if (keybind != null) return keybind.getWidth(font) + 24;
+        if (stepper != null) return 60 + 24;
+        if (slider != null) return 80 + 24;
+        if (editBox != null) return 100 + 24;
         if (setting instanceof ButtonSetting btn) {
             String txt = btn.getButtonText() != null ? btn.getButtonText() : "Action";
-            return Math.max(50, font.width(GuiStyle.styled(txt)) + 12);
+            return Math.max(50, font.width(GuiStyle.styled(txt)) + 12) + 24;
         }
-        if (setting instanceof ColorSetting) return 30;
-        return 40;
+        if (setting instanceof ColorSetting) return 30 + 24;
+        return 40 + 24;
     }
 
     public void setPosition(int x, int y, int width) {

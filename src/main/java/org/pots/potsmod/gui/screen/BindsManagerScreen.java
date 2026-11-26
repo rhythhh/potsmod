@@ -156,6 +156,17 @@ public class BindsManagerScreen extends Screen {
         int titleY = Math.round(layout.panelY() + (BindsManagerLayout.HEADER_HEIGHT - font.lineHeight * titleScale) / 2.0f);
         drawBig(g, title, titleX, titleY, titleScale, theme.textColor());
 
+        // Back Button
+        UiRect backBtn = layout.backButton();
+        boolean backHovered = inside(backBtn, mouseX, mouseY);
+        int backFill = backHovered ? Render2D.withAlpha(theme.secondary(), 250) : Render2D.withAlpha(theme.secondary(), 200);
+        int backBorder = backHovered ? 0xFFFFFFFF : 0x40FFFFFF;
+        Render2D.shaderRoundedSurface(g, backBtn.x(), backBtn.y(), backBtn.width(), backBtn.height(), 6, backFill, backBorder);
+        String backLabel = "← Back";
+        int blw = font.width(GuiStyle.styled(backLabel));
+        int bly = backBtn.y() + (backBtn.height() - font.lineHeight) / 2 + 1;
+        g.drawString(font, GuiStyle.styled(backLabel), backBtn.x() + (backBtn.width() - blw) / 2, bly, backHovered ? 0xFFFFFFFF : theme.textColor(), false);
+
         // ADD BIND Button on left
         UiRect addBtn = layout.addBindButton();
         boolean canAdd = binds.size() < MAX_BINDS;
@@ -331,6 +342,13 @@ public class BindsManagerScreen extends Screen {
                 }
             }
             capturingBindId = null;
+            return true;
+        }
+
+        // Back button
+        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && inside(layout.backButton(), mouseX, mouseY)) {
+            org.pots.potsmod.util.ModSounds.playClick();
+            onClose();
             return true;
         }
 

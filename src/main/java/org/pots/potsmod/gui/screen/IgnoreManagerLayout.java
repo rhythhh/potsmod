@@ -45,9 +45,14 @@ record IgnoreManagerLayout(int panelX, int panelY, int panelW, int panelH) {
         return new UiRect(list.x(), y, list.width(), ROW_HEIGHT);
     }
 
-    public UiRect searchBounds() {
-        int width = Math.clamp(panelW / 3 - 14, 96, SEARCH_WIDTH);
+    public UiRect backBounds() {
+        int width = 56;
         return new UiRect(panelX + 14, panelY + 16, width, SEARCH_HEIGHT);
+    }
+
+    public UiRect searchBounds() {
+        int width = Math.clamp(panelW / 3 - 20, 96, SEARCH_WIDTH);
+        return new UiRect(panelX + 14 + 56 + 8, panelY + 16, width, SEARCH_HEIGHT);
     }
 
     public UiRect unignoreBounds() {

@@ -34,10 +34,16 @@ record BindsManagerLayout(int panelX, int panelY, int panelW, int panelH) {
         return new UiRect(panelX + 14, listTop(), panelW - 28, listHeight());
     }
 
+    public UiRect backButton() {
+        int btnW = 58;
+        int btnH = 22;
+        return new UiRect(panelX + 16, panelY + (HEADER_HEIGHT - btnH) / 2, btnW, btnH);
+    }
+
     public UiRect addBindButton() {
         int btnW = 90;
         int btnH = 22;
-        return new UiRect(panelX + 16, panelY + (HEADER_HEIGHT - btnH) / 2, btnW, btnH);
+        return new UiRect(panelX + 16 + 58 + 8, panelY + (HEADER_HEIGHT - btnH) / 2, btnW, btnH);
     }
 
     public UiRect rowBounds(int index, double scroll) {

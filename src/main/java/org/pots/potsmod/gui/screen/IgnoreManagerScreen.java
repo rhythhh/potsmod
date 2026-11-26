@@ -93,8 +93,21 @@ public class IgnoreManagerScreen extends Screen {
         int titleY = Math.round(layout.panelY() + (IgnoreManagerLayout.HEADER_HEIGHT - font.lineHeight * titleScale) / 2.0f);
         drawBig(g, title, titleX, titleY, titleScale, theme.textColor());
 
+        drawBackButton(g, mouseX, mouseY, theme);
         drawUnignoreAll(g, mouseX, mouseY, theme);
         drawSearch(g, mouseX, mouseY, theme);
+    }
+
+    private void drawBackButton(GuiGraphics g, int mouseX, int mouseY, GuiTheme theme) {
+        UiRect button = layout.backBounds();
+        boolean hovered = inside(button, mouseX, mouseY);
+        int fill = hovered ? Render2D.withAlpha(theme.secondary(), 250) : Render2D.withAlpha(theme.secondary(), 200);
+        int border = hovered ? 0xFFFFFFFF : 0x40FFFFFF;
+        Render2D.shaderRoundedSurface(g, button.x(), button.y(), button.width(), button.height(), 6, fill, border);
+        String label = "← Back";
+        int labelW = font.width(GuiStyle.styled(label));
+        int labelY = button.y() + (button.height() - font.lineHeight) / 2 + 1;
+        g.drawString(font, GuiStyle.styled(label), button.x() + (button.width() - labelW) / 2, labelY, hovered ? 0xFFFFFFFF : theme.textColor(), false);
     }
 
     private void drawUnignoreAll(GuiGraphics g, int mouseX, int mouseY, GuiTheme theme) {
@@ -250,6 +263,12 @@ public class IgnoreManagerScreen extends Screen {
         boolean clickedSearch = inside(searchBounds(), mouseX, mouseY);
         if (!clickedSearch) {
             blurSearch();
+        }
+
+        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && inside(layout.backBounds(), mouseX, mouseY)) {
+            org.pots.potsmod.util.ModSounds.playClick();
+            onClose();
+            return true;
         }
 
         if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && grabScrollbar(mouseX, mouseY)) {
