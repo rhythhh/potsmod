@@ -44,8 +44,6 @@ public class FeatureManager {
     @Getter
     private static InventoryCalculatorFeature inventoryCalculatorFeature;
     @Getter
-    private static QuickAttackFeature quickAttackFeature;
-    @Getter
     private static EconomySandboxFeature economySandboxFeature;
     @Getter
     private static GuildWebhookFeature guildWebhookFeature;
@@ -69,7 +67,6 @@ public class FeatureManager {
         defenseColorOverlayFeature = new DefenseColorOverlayFeature();
         worldMapHudFeature = new WorldMapHudFeature();
         inventoryCalculatorFeature = new InventoryCalculatorFeature();
-        quickAttackFeature = new QuickAttackFeature();
         economySandboxFeature = new EconomySandboxFeature();
         guildWebhookFeature = new GuildWebhookFeature();
         newestWorldSwitchFeature = new NewestWorldSwitchFeature();
@@ -91,7 +88,6 @@ public class FeatureManager {
                 defenseColorOverlayFeature,
                 worldMapHudFeature,
                 inventoryCalculatorFeature,
-                quickAttackFeature,
                 economySandboxFeature,
                 guildWebhookFeature,
                 newestWorldSwitchFeature

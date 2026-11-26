@@ -11,6 +11,14 @@ public class PotsmodClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        // Eagerly pre-load critical rendering classes into memory to prevent ZipException
+        // if mod files are replaced or accessed after long gaming sessions
+        try {
+            Class.forName("org.pots.potsmod.render.Render2D");
+            Class.forName("org.pots.potsmod.gui.theme.ThemeTokens");
+            Class.forName("org.pots.potsmod.gui.screen.ConfigScreen");
+        } catch (Throwable ignored) {}
+
         KeybindManager.init();
         PotsmodConfig.init();
         SchedulerManager.init();

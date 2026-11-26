@@ -49,7 +49,6 @@ final class PotsmodConfigSections {
                 PotsmodConfigSections::defenseColorOverlaySection,
                 PotsmodConfigSections::economySandboxSection,
                 PotsmodConfigSections::newestWorldSwitchSection,
-                PotsmodConfigSections::quickAttackSection,
                 PotsmodConfigSections::worldMapHudSection,
                 PotsmodConfigSections::resourceTickSection,
                 PotsmodConfigSections::territoryRouteFlowSection,
@@ -135,20 +134,6 @@ final class PotsmodConfigSections {
                         bool("enabled", "Enable Newest World Switch", "Allow pressing keybind to switch to newest world. HERO+ rank is required.", PotsmodConfigData::isNewestWorldSwitchEnabled, PotsmodConfigData::setNewestWorldSwitchEnabled),
                         choice("region", "Region", "Select server region (NA, EU, AS, or ALL).", PotsmodConfigData::getNewestWorldRegion, PotsmodConfigData::setNewestWorldRegion, org.pots.potsmod.config.choices.ServerRegionChoice.class),
                         keybind("keybind", "Switch Keybind", "Key to switch to newest world.", PotsmodConfigData::getNewestWorldSwitchKey, PotsmodConfigData::setNewestWorldSwitchKey)
-                )
-        );
-    }
-
-    private static SettingSection quickAttackSection(SettingCategory category) {
-        return SettingSection.standard(
-                "quick_attack",
-                "Attack bind",
-                "Set a keybind to instantly press the minecraft thingy on the /gu attack menu...",
-                category,
-                null,
-                null,
-                List.of(
-                        keybind("quick_attack", "Key bind", "Key to click attack in the guild attack menu.", PotsmodConfigData::getQuickAttackKey, PotsmodConfigData::setQuickAttackKey)
                 )
         );
     }

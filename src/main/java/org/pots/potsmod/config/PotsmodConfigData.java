@@ -58,7 +58,6 @@ public class PotsmodConfigData {
     private boolean economyWebhookEnabled = true;
     private String economyWebhookUrl = "";
 
-    private String quickAttackKey = KeyUtil.UNBOUND;
     private String economySandboxKey = KeyUtil.UNBOUND;
     private boolean newestWorldSwitchEnabled = false;
     private org.pots.potsmod.config.choices.ServerRegionChoice newestWorldRegion = org.pots.potsmod.config.choices.ServerRegionChoice.ALL;
@@ -269,7 +268,6 @@ public class PotsmodConfigData {
         resTickOverlayOffsetX = clamp(resTickOverlayOffsetX, -2000, 2000);
         resTickOverlayOffsetY = clamp(resTickOverlayOffsetY, -2000, 2000);
 
-        quickAttackKey = KeyUtil.normalizeKey(quickAttackKey, KeyUtil.UNBOUND);
         newestWorldSwitchKey = KeyUtil.normalizeKey(newestWorldSwitchKey, KeyUtil.UNBOUND);
         if (newestWorldRegion == null) {
             newestWorldRegion = org.pots.potsmod.config.choices.ServerRegionChoice.ALL;

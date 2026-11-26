@@ -514,6 +514,17 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
             if (guildColor == null) guildColor = CommonColors.WHITE;
             int guildRgb = guildColor.asInt() & 0x00FFFFFF;
 
+            // 10-minute attack cooldown check (territory acquired within the last 10 minutes)
+            boolean inAttackCooldown = false;
+            if (profile != null && profile.getAcquired() != null) {
+                long heldMs = System.currentTimeMillis() - profile.getAcquired().toEpochMilli();
+                if (heldMs >= 0 && heldMs < 10 * 60 * 1000L) {
+                    inAttackCooldown = true;
+                }
+            }
+
+            boolean isGuildColorMode = (getColorMode() == 0 && (!showResourceColors || info == null || info.getResourceColors().isEmpty()));
+
             // Box Fill & Border Color: Guild Color or Defense Tier
             int baseRgb;
             if (getColorMode() == 1) {
@@ -525,15 +536,29 @@ public class RevampedTerritoryMapScreen extends AbstractMapScreen {
                 baseRgb = guildRgb;
             }
 
+            // If in 10-minute cooldown AND color mode is guild color, tint the fill slightly light reddish
+            if (inAttackCooldown && isGuildColorMode) {
+                int r = (baseRgb >> 16) & 0xFF;
+                int gC = (baseRgb >> 8) & 0xFF;
+                int b = baseRgb & 0xFF;
+                // Blend towards a light red/tint (e.g. 50% original guild color, 50% light red 0xFF5555)
+                r = Math.min(255, (r + 255) / 2);
+                gC = (gC + 85) / 3;
+                b = (b + 85) / 3;
+                baseRgb = (r << 16) | (gC << 8) | b;
+            }
+
             // Restrained opacity for clear terrain readability (batched fill)
-            int fillAlpha = isHovered ? 0x58 : 0x36;
+            int fillAlpha = isHovered ? 0x58 : (inAttackCooldown && isGuildColorMode ? 0x48 : 0x36);
             int fillColor = (fillAlpha << 24) | baseRgb;
             g.fill((int) rx, (int) rz, (int) (rx + rw), (int) (rz + rh), fillColor);
 
             // Fast batched outline (avoids 1,600 GPU flushes per frame)
-            int borderCol = isHq ? 0xFFFFD700 : ((isHovered ? 0xFF : 0xC0) << 24) | baseRgb;
+            int borderCol = inAttackCooldown
+                    ? 0xFFFF2222 // Distinct solid red outline for territories in 10-minute cooldown
+                    : (isHq ? 0xFFFFD700 : ((isHovered ? 0xFF : 0xC0) << 24) | baseRgb);
             g.renderOutline((int) rx, (int) rz, (int) rw, (int) rh, borderCol);
-            if (isHq && rw >= 4 && rh >= 4) {
+            if (isHq && rw >= 4 && rh >= 4 && !inAttackCooldown) {
                 g.renderOutline((int) rx + 1, (int) rz + 1, (int) rw - 2, (int) rh - 2, 0xFFFFD700);
             }
 

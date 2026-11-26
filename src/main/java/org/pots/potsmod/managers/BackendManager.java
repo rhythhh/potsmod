@@ -55,6 +55,7 @@ public final class BackendManager {
     private static volatile String guildName = null;
     private static volatile String latestVersion = null;
     private static volatile String downloadUrl = null;
+    private static volatile String discoveredLatestGitHubVer = null;
 
     private BackendManager() {}
 
@@ -64,7 +65,8 @@ public final class BackendManager {
         startChatPoll();
 
         net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-            checkAndShowUpdateNotice(client);
+            // Delay 50 ticks (~2.5s) so the notice pops up cleanly after world/server join spam
+            SchedulerManager.schedule(() -> checkAndShowUpdateNotice(client), 50);
         });
     }
 
@@ -83,18 +85,125 @@ public final class BackendManager {
     public static void checkAndShowUpdateNotice(Minecraft mc) {
         if (mc == null) return;
         String lastNotified = org.pots.potsmod.config.PotsmodConfig.getData().getLastNotifiedVersion();
+
+        // 1. First time login after updating
         if (!CURRENT_VERSION.equalsIgnoreCase(lastNotified)) {
             mc.execute(() -> {
                 if (mc.player != null) {
-                    mc.player.displayClientMessage(
-                            Component.literal("§6[r] §aThe mod R has been automatically updated to the new version " + CURRENT_VERSION),
-                            false
-                    );
+                    // Line 1: potsmod updated to version v0.20.1 (potato brown + underscore)
+                    MutableComponent updatedLine = Component.literal("potsmod ")
+                            .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xC68642)))
+                            .append(Component.literal("updated to version ")
+                                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xC68642))))
+                            .append(Component.literal("v" + CURRENT_VERSION)
+                                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xC68642)).withUnderlined(true)));
+
+                    // Line 2: official github: https://github.com/rhythhh/potsmod (meow)
+                    MutableComponent githubLink = Component.literal("https://github.com/rhythhh/potsmod")
+                            .withStyle(Style.EMPTY
+                                    .withColor(net.minecraft.network.chat.TextColor.fromRgb(0x55FFFF))
+                                    .withUnderlined(true)
+                                    .withClickEvent(new net.minecraft.network.chat.ClickEvent.OpenUrl(URI.create("https://github.com/rhythhh/potsmod")))
+                                    .withHoverEvent(new net.minecraft.network.chat.HoverEvent.ShowText(Component.literal("§bClick to open official GitHub repository"))));
+
+                    MutableComponent githubLine = Component.literal("official github: ")
+                            .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFFFFFF)))
+                            .append(githubLink)
+                            .append(Component.literal(" (meow)").withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFFFFFF))));
+
+                    mc.player.displayClientMessage(updatedLine, false);
+                    mc.player.displayClientMessage(githubLine, false);
+
                     org.pots.potsmod.config.PotsmodConfig.getData().setLastNotifiedVersion(CURRENT_VERSION);
                     org.pots.potsmod.config.PotsmodConfig.save();
                 }
             });
+            return;
         }
+
+        // 2. Reminder message when auto-update is OFF and mod is outdated
+        if (!org.pots.potsmod.config.PotsmodConfig.getData().isAutoUpdate()) {
+            if (discoveredLatestGitHubVer != null && isNewerVersion(discoveredLatestGitHubVer, CURRENT_VERSION)) {
+                showOutdatedReminder(mc, discoveredLatestGitHubVer);
+            } else {
+                // Asynchronously fetch latest GitHub release to remind player
+                SCHEDULER.submit(() -> {
+                    try {
+                        URL url = URI.create(GITHUB_RELEASES_API).toURL();
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setRequestMethod("GET");
+                        conn.setConnectTimeout(4000);
+                        conn.setReadTimeout(6000);
+                        conn.setRequestProperty("User-Agent", "Potsmod-Client");
+                        conn.setRequestProperty("Accept", "application/vnd.github.v3+json");
+
+                        if (conn.getResponseCode() == 200) {
+                            String resp;
+                            try (InputStream is = conn.getInputStream()) {
+                                resp = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+                            }
+                            JsonObject json = JsonParser.parseString(resp).getAsJsonObject();
+                            if (json.has("tag_name") && !json.get("tag_name").isJsonNull()) {
+                                String remoteTag = json.get("tag_name").getAsString().trim();
+                                String cleanRemoteVer = remoteTag.replaceFirst("^[vV]", "").replaceAll("(?i)\\.jar$", "");
+                                discoveredLatestGitHubVer = cleanRemoteVer;
+                                if (isNewerVersion(cleanRemoteVer, CURRENT_VERSION)) {
+                                    showOutdatedReminder(mc, cleanRemoteVer);
+                                }
+                            }
+                        }
+                    } catch (Throwable ignored) {}
+                });
+            }
+        }
+    }
+
+    private static void showOutdatedReminder(Minecraft mc, String newerVer) {
+        mc.execute(() -> {
+            if (mc.player == null) return;
+
+            // Line 1: potsmod (potato brown) + NEEDS TO BE UPDATED to v... >:( (light red)
+            MutableComponent line1 = Component.literal("potsmod ")
+                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xC68642)))
+                    .append(Component.literal("NEEDS TO BE UPDATED to v" + newerVer + " >:(")
+                            .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFF6B6B))));
+
+            // Line 2: UPDATE IT NOWWW or else... (light red)
+            MutableComponent line2 = Component.literal("UPDATE IT NOWWW or else...")
+                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFF6B6B)));
+
+            // Line 3: clickable GUI hint (entire line is clickable for easy access)
+            MutableComponent line3 = Component.literal("Turn on auto update in ")
+                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFFFFFF)))
+                    .append(Component.literal("potsmod gui > Client (click it) > Auto Update")
+                            .withStyle(Style.EMPTY
+                                    .withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFFD700))
+                                    .withUnderlined(true)))
+                    .append(Component.literal(" if you don't wanna get bothered by me anymore in the future when your mod is outdated :3")
+                            .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0xFFFFFF))))
+                    .withStyle(style -> style
+                            .withClickEvent(org.pots.potsmod.models.events.ExecuteRunnableClickEvent.of(() -> {
+                                Minecraft.getInstance().setScreen(org.pots.potsmod.config.PotsmodConfig.getConfigScreen());
+                            }))
+                            .withHoverEvent(new net.minecraft.network.chat.HoverEvent.ShowText(Component.literal("§eClick anywhere here to open Potsmod Settings!"))));
+
+            // Line 4: Github: blue and underscored (https://github.com/rhythhh/potsmod/releases/latest)
+            MutableComponent githubReleasesLink = Component.literal("https://github.com/rhythhh/potsmod/releases/latest")
+                    .withStyle(Style.EMPTY
+                            .withColor(net.minecraft.network.chat.TextColor.fromRgb(0x55FFFF))
+                            .withUnderlined(true)
+                            .withClickEvent(new net.minecraft.network.chat.ClickEvent.OpenUrl(URI.create("https://github.com/rhythhh/potsmod/releases/latest")))
+                            .withHoverEvent(new net.minecraft.network.chat.HoverEvent.ShowText(Component.literal("§bClick to open latest GitHub release"))));
+
+            MutableComponent line4 = Component.literal("Github: ")
+                    .withStyle(Style.EMPTY.withColor(net.minecraft.network.chat.TextColor.fromRgb(0x9E9E9E)))
+                    .append(githubReleasesLink);
+
+            mc.player.displayClientMessage(line1, false);
+            mc.player.displayClientMessage(line2, false);
+            mc.player.displayClientMessage(line3, false);
+            mc.player.displayClientMessage(line4, false);
+        });
     }
 
     public static boolean isBanned() {
@@ -511,11 +620,9 @@ public final class BackendManager {
                                 downloadUrl = json.get("downloadUrl").getAsString();
                             }
 
-                            // Auto-updater enabled for future releases
-                            if (org.pots.potsmod.config.PotsmodConfig.getData().isAutoUpdate() && latestVersion != null && downloadUrl != null) {
-                                if (isNewerVersion(latestVersion, CURRENT_VERSION)) {
-                                    triggerAutoUpdate(downloadUrl, latestVersion);
-                                }
+                            // Check GitHub for new releases if auto-update is enabled
+                            if (org.pots.potsmod.config.PotsmodConfig.getData().isAutoUpdate()) {
+                                checkForGitHubRelease();
                             }
                         }
                         PotsmodClient.LOGGER.info("Potsmod Backend boot reported successfully: " + name + " (" + uuid + ") [guildMember=" + isGuildMember + "]");
@@ -523,6 +630,57 @@ public final class BackendManager {
                     }
                 } catch (Throwable ignored) {
                 }
+            }
+        });
+    }
+
+    private static final String GITHUB_RELEASES_API = "https://api.github.com/repos/rhythhh/potsmod/releases/latest";
+
+    private static void checkForGitHubRelease() {
+        SCHEDULER.submit(() -> {
+            try {
+                URL url = URI.create(GITHUB_RELEASES_API).toURL();
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(10000);
+                conn.setRequestProperty("User-Agent", "Potsmod-Client");
+                conn.setRequestProperty("Accept", "application/vnd.github.v3+json");
+
+                if (conn.getResponseCode() != 200) return;
+
+                String resp;
+                try (InputStream is = conn.getInputStream()) {
+                    resp = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+                }
+
+                JsonObject json = JsonParser.parseString(resp).getAsJsonObject();
+                if (!json.has("tag_name") || json.get("tag_name").isJsonNull()) return;
+
+                String remoteTag = json.get("tag_name").getAsString().trim();
+                String cleanRemoteVer = remoteTag.replaceFirst("^[vV]", "").replaceAll("(?i)\\.jar$", "");
+
+                if (!isNewerVersion(cleanRemoteVer, CURRENT_VERSION)) return;
+
+                // Find the first .jar asset
+                String jarDownloadUrl = null;
+                if (json.has("assets") && json.get("assets").isJsonArray()) {
+                    for (var elem : json.getAsJsonArray("assets")) {
+                        JsonObject asset = elem.getAsJsonObject();
+                        String name = asset.has("name") ? asset.get("name").getAsString() : "";
+                        if (name.endsWith(".jar") && asset.has("browser_download_url")) {
+                            jarDownloadUrl = asset.get("browser_download_url").getAsString();
+                            break;
+                        }
+                    }
+                }
+
+                if (jarDownloadUrl != null) {
+                    PotsmodClient.LOGGER.info("Found newer Potsmod release on GitHub: " + cleanRemoteVer + " (" + jarDownloadUrl + ")");
+                    triggerAutoUpdate(jarDownloadUrl, cleanRemoteVer);
+                }
+            } catch (Throwable e) {
+                PotsmodClient.LOGGER.debug("GitHub update check failed: " + e.getMessage());
             }
         });
     }
@@ -583,10 +741,11 @@ public final class BackendManager {
     }
 
     private static boolean isNewerVersion(String remote, String current) {
-        if (remote == null || current == null || remote.equalsIgnoreCase(current)) return false;
+        if (remote == null || current == null) return false;
+        String cleanRemote = remote.replaceAll("(?i)\\.jar$", "").replaceAll("[^0-9.]", "").trim();
+        String cleanCurrent = current.replaceAll("(?i)\\.jar$", "").replaceAll("[^0-9.]", "").trim();
+        if (cleanRemote.isEmpty() || cleanCurrent.isEmpty() || cleanRemote.equalsIgnoreCase(cleanCurrent)) return false;
         try {
-            String cleanRemote = remote.replaceAll("[^0-9.]", "");
-            String cleanCurrent = current.replaceAll("[^0-9.]", "");
             String[] rParts = cleanRemote.split("\\.");
             String[] cParts = cleanCurrent.split("\\.");
             int max = Math.max(rParts.length, cParts.length);
@@ -597,6 +756,6 @@ public final class BackendManager {
                 if (r < c) return false;
             }
         } catch (Exception ignored) {}
-        return !remote.equalsIgnoreCase(current);
+        return false;
     }
 }
