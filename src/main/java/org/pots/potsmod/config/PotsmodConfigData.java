@@ -63,6 +63,8 @@ public class PotsmodConfigData {
     private org.pots.potsmod.config.choices.ServerRegionChoice newestWorldRegion = org.pots.potsmod.config.choices.ServerRegionChoice.ALL;
     private String newestWorldSwitchKey = KeyUtil.UNBOUND;
 
+    private List<org.pots.potsmod.models.bind.CustomBindEntry> customBinds = new ArrayList<>();
+
     private String worldMapHudToggleKey = "key.keyboard.semicolon";
     private String worldMapHudZoomInKey = "key.keyboard.equal";
     private String worldMapHudZoomOutKey = "key.keyboard.minus";
@@ -285,6 +287,24 @@ public class PotsmodConfigData {
         if (defenseOverlayEnabledGuilds == null) {
             defenseOverlayEnabledGuilds = new HashSet<>();
         }
+        if (customBinds == null) {
+            customBinds = new ArrayList<>();
+        }
+        for (org.pots.potsmod.models.bind.CustomBindEntry bind : customBinds) {
+            if (bind.getId() == null || bind.getId().isBlank()) {
+                bind.setId(java.util.UUID.randomUUID().toString());
+            }
+            if (bind.getName() == null) {
+                bind.setName("Custom Bind");
+            }
+            if (bind.getCommand() == null) {
+                bind.setCommand("");
+            }
+            bind.setKey(KeyUtil.normalizeKey(bind.getKey(), KeyUtil.UNBOUND));
+        }
+        if (customBinds.size() > 50) {
+            customBinds = new ArrayList<>(customBinds.subList(0, 50));
+        }
     }
 
     public Set<String> getDefenseOverlayEnabledGuilds() {
@@ -292,6 +312,13 @@ public class PotsmodConfigData {
             defenseOverlayEnabledGuilds = new HashSet<>();
         }
         return defenseOverlayEnabledGuilds;
+    }
+
+    public List<org.pots.potsmod.models.bind.CustomBindEntry> getCustomBinds() {
+        if (customBinds == null) {
+            customBinds = new ArrayList<>();
+        }
+        return customBinds;
     }
 
     private int clamp(int value, int min, int max) {

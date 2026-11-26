@@ -49,6 +49,8 @@ public class FeatureManager {
     private static GuildWebhookFeature guildWebhookFeature;
     @Getter
     private static NewestWorldSwitchFeature newestWorldSwitchFeature;
+    @Getter
+    private static CustomBindsFeature customBindsFeature;
 
     public static void init() {
         resTickFeature = new ResourceTickFeature();
@@ -70,6 +72,7 @@ public class FeatureManager {
         economySandboxFeature = new EconomySandboxFeature();
         guildWebhookFeature = new GuildWebhookFeature();
         newestWorldSwitchFeature = new NewestWorldSwitchFeature();
+        customBindsFeature = new CustomBindsFeature();
 
         for (Feature feature : List.of(
                 resTickFeature,
@@ -90,7 +93,8 @@ public class FeatureManager {
                 inventoryCalculatorFeature,
                 economySandboxFeature,
                 guildWebhookFeature,
-                newestWorldSwitchFeature
+                newestWorldSwitchFeature,
+                customBindsFeature
         )) {
             feature.runSafe("init", feature::init);
         }

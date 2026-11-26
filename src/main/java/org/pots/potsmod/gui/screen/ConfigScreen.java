@@ -41,7 +41,8 @@ public class ConfigScreen extends Screen {
         WAR("War", SettingCategory.WAR),
         SOCIAL("Social", SettingCategory.SOCIAL),
         OVERLAYS("HUD", null),
-        IGNORE("Ignore", null);
+        IGNORE("Ignore", null),
+        BINDS("Binds", null);
 
         final String label;
         final SettingCategory category;
@@ -313,6 +314,13 @@ public class ConfigScreen extends Screen {
                 g.fill(cx - 4, cy - 3, cx - 3, cy + 3, color);
                 g.fill(cx + 4, cy - 3, cx + 5, cy + 3, color);
             }
+            case BINDS -> { // Keyboard keycap / Command terminal icon
+                g.fill(cx - 4, cy - 4, cx + 5, cy + 4, color);
+                g.fill(cx - 3, cy - 3, cx + 4, cy + 3, ThemeTokens.SIDEBAR_BG);
+                // Inside key accent (slash or command prompt dot)
+                g.fill(cx - 2, cy - 1, cx + 2, cy, color);
+                g.fill(cx - 1, cy - 2, cx, cy + 2, color);
+            }
         }
     }
 
@@ -574,6 +582,10 @@ public class ConfigScreen extends Screen {
                     }
                     if (target == SidebarPage.IGNORE) {
                         minecraft.setScreen(new IgnoreManagerScreen(this, org.pots.potsmod.managers.FeatureManager.getIgnoreFeature()));
+                        return true;
+                    }
+                    if (target == SidebarPage.BINDS) {
+                        minecraft.setScreen(new BindsManagerScreen(this));
                         return true;
                     }
                     activePage = target;
